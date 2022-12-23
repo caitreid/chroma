@@ -4,10 +4,10 @@ For my first project I plan to create an emulation of the iOS app called **I Lov
 
 
 ## Puzzle preview
-<img src="images/ILoveHue.png">
+<img src="images/hue.png">
 
 ## Puzzle after scramble
-<img src="images/ILoveHue2.jpg">
+<img src="images/hue2.jpg">
 
 ## User Stories
 
