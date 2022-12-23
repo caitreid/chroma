@@ -1,7 +1,9 @@
-# I Love Hue - Game Modeling
+# I Love Hue Clone | CHROMA
 
-For my first project I plan to create an emulation of the iOS app called **I Love Hue** a color-based puzzle game.
+For my first project I plan to create an emulation of the iOS app called **I Love Hue**, a color-based puzzle game.
 
+
+<img src="images/start.png">
 
 ## Puzzle preview
 <img src="images/hue.png">
@@ -22,6 +24,8 @@ A User will be able to...
 - Listen to meditative music while playing the game (as per the original)
 
 ## Wireframe
+### Opening 
+Animated text announcing game.
 <img src="images/mockup1.png">
 
 ## Entities
