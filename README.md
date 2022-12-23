@@ -3,13 +3,14 @@
 For my first project I plan to create an emulation of the iOS app called **I Love Hue**, a color-based puzzle game.
 
 
-<img src="images/start.png">
+<img src="images/start.png" style="max-width:700px; margin:1rem">
 
-## Puzzle preview
-<img src="images/hue.png">
+## Puzzle preview + after scramble
+<img src="images/hue.png" style="max-width:300px; margin:1rem">
+<img src="images/hue2.jpg" style="max-width:300px; margin:1rem">
 
-## Puzzle after scramble
-<img src="images/hue2.jpg">
+## 
+
 
 ## User Stories
 
