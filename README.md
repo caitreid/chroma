@@ -35,3 +35,6 @@ This project will not use a database. However it will need to be constructed wit
 - A JS Class for building the puzzle
 - A JS Class for selected square item
 - Function for checking the solution
+
+## Notes
+- https://codepen.io/caitlinreid1/pen/ExpjeRY
