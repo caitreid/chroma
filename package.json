@@ -1,0 +1,23 @@
+{
+  "name": "chroma",
+  "version": "1.0.0",
+  "description": "color matching puzzle game",
+  "main": "index.js",
+  "scripts": {
+    "sass": "node-sass -w scss/ -o css/ --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caitreid/project1.git"
+  },
+  "author": "Caitlin Reid",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caitreid/project1/issues"
+  },
+  "homepage": "https://github.com/caitreid/project1#readme",
+  "dependencies": {
+    "node-sass": "^8.0.0",
+    "sass": "^1.57.1"
+  }
+}

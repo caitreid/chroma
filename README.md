@@ -31,11 +31,9 @@ Animated text announcing game.
 
 ## Entities
 
-This project will not use a database. However it will need to be constructed with
-- CSS Canvas
-- A JS Class for building the puzzle
-- A JS Class for selected square item
-- Function for checking the solution
+This project will not use a database. 
+However it will need to be constructed with
+-
 
 ## Notes
 - https://codepen.io/caitlinreid1/pen/ExpjeRY
