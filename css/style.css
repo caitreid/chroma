@@ -1,8 +1,25 @@
-body {
-  background-color: green;
+.container {
+  max-width: 800px;
+  height: 800px;
 }
-body h1 {
-  color: pink;
+
+.block-container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  align-content: stretch;
+  justify-content: center;
+}
+.block-container, .block-color {
+  border: 1px black solid;
+}
+.block-color {
+  background-color: aqua;
+}
+
+#block-1 {
+  background-color: pink;
 }
 
 /*# sourceMappingURL=style.css.map */

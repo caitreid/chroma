@@ -37,3 +37,7 @@ However it will need to be constructed with
 
 ## Notes
 - https://codepen.io/caitlinreid1/pen/ExpjeRY
+
+## Commands
+
+`sass --watch scss/style.scss:css/style.css`
