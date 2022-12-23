@@ -16,10 +16,36 @@
 }
 .block-color {
   background-color: aqua;
+  margin: 10px;
 }
 
 #block-1 {
   background-color: pink;
+}
+
+/* EXAMPLE */
+body {
+  /* Prevent the user selecting text in the example */
+  user-select: none;
+}
+
+#draggable {
+  text-align: center;
+  background: white;
+}
+
+.dropzone {
+  background: blueviolet;
+  margin: 10px;
+  padding: 10px;
+}
+
+.dropzone.dragover {
+  background-color: rgb(236, 75, 236);
+}
+
+.dragging {
+  opacity: 0.25;
 }
 
 /*# sourceMappingURL=style.css.map */

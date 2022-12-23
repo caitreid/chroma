@@ -9,11 +9,24 @@
   </head>
   <body>
     <h1>Chroma | Color matching puzzle game</h1>
+
+    <div class="dropzone">
+        <div class="draggable" draggable="true">This div is draggable</div>
+    </div>
+
+    <div class="dropzone" id="droptarget"></div>
+
+
+
     <div class="container">
         <div class="block-container">
-            <div class="block-color" id="block-1" draggable="true">1</div>
-            <div class="block-color" id="2" draggable="true">2</div>
-            <div class="block-color" id="3" draggable="true">3</div>
+            <div class="dropzone droptarget">
+                <div class="block-color draggable" id="block-1" draggable="true">1</div>
+            </div>
+            <div class="dropzone droptarget">
+                <div class="block-color draggable" id="2" draggable="true">2</div>
+            </div>
+            <!-- <div class="block-color" id="3" draggable="true">3</div>
             <div class="block-color" id="4" draggable="true">4</div>
             <div class="block-color" id="5" draggable="true">5</div>
             <div class="block-color" id="6" draggable="true">6</div>
@@ -26,7 +39,11 @@
             <div class="block-color" id="13" draggable="true">13</div>
             <div class="block-color" id="14" draggable="true">14</div>
             <div class="block-color" id="15" draggable="true">15</div>
-            <div class="block-color" id="16" draggable="true">16</div>
+            <div class="block-color" id="16" draggable="true">16</div> -->
+            <!-- <div class="block-color" id="17"
+                ondrop="drop_handler(event)">
+                Drop Zone
+            </div> -->
         </div>
     </div>
 
