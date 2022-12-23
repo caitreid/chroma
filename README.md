@@ -1,4 +1,4 @@
-# I Love Hue Clone | CHROMA
+# I Love Hue | CHROMA
 
 For my first project I plan to create an emulation of the iOS app called **I Love Hue**, a color-based puzzle game.
 
