@@ -16,7 +16,8 @@
 }
 .block-color {
   background-color: aqua;
-  margin: 10px;
+  height: 70%;
+  width: 100%;
 }
 
 #block-1 {
@@ -36,8 +37,8 @@ body {
 
 .dropzone {
   background: blueviolet;
-  margin: 10px;
   padding: 10px;
+  border: 1px black solid;
 }
 
 .dropzone.dragover {

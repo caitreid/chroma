@@ -37,7 +37,7 @@ let dragged;
 const elements = document.querySelectorAll(".draggable");
 
 // give each element a listener - log that its dragging
-elements.forEach(element => element.addEventListener("drag", (event) => {console.log('dragggging')}))
+// elements.forEach(element => element.addEventListener("drag", (event) => {console.log('dragggging')}))
 
 
 elements.forEach(element => element.addEventListener("dragstart", (event)=> {
@@ -66,6 +66,9 @@ droptargets.forEach(droptarget => droptarget.addEventListener("dragover", (event
 
 droptargets.forEach(droptarget => droptarget.addEventListener("dragenter", (event) => {
       // highlight potential drop target when the draggable element enters it
+
+
+  console.log('event.target', event.target)
   if (event.target.classList.contains("dropzone")) {
     event.target.classList.add("dragover");
   }
@@ -94,13 +97,19 @@ droptargets.forEach(droptarget => droptarget.addEventListener("dragleave", (even
 
 
 droptargets.forEach(droptarget => droptarget.addEventListener("drop", (event) => {
-// prevent default action (open as link for some elements)
+
+  // prevent default action (open as link for some elements)
   event.preventDefault();
+
   // move dragged element to the selected drop target
   if (event.target.classList.contains("dropzone")) {
+
     event.target.classList.remove("dragover");
+
     event.target.appendChild(dragged);
+
   }
+
 }))
 
 // target.addEventListener("drop", (event) => {
