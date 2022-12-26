@@ -30,11 +30,11 @@
 // ]
 
 let colorValues = {
-    row1: [[143, 201, 200], [], [], [], [243, 229, 118]],
-    row2: [[], [], [], [], []],
-    row3: [[], [], [], [], []],
-    row4: [[], [], [], [], []],
-    row5: [[23, 54, 211], [], [], [], [240, 73, 36]]
+    0: [[143, 201, 200], [], [], [], [243, 229, 118]],
+    1: [[], [], [], [], []],
+    2: [[], [], [], [], []],
+    3: [[], [], [], [], []],
+    4: [[23, 54, 211], [], [], [], [240, 73, 36]]
 }
 
 
@@ -44,35 +44,46 @@ let blocks = document.querySelectorAll('.block-color');
 
 blocks.forEach((block, index) => {
 
-    let indexNew = 0;
-
     // pointOne to pointTwo
     if (index < 5 ) {
 
         percent = index / 4
-
-        // console.log(percent)
     
-        let varR = colorValues['row1'][0][0] + percent * (colorValues['row1'][4][0] - colorValues['row1'][0][0]);
-        let varG = colorValues['row1'][0][1] + percent * (colorValues['row1'][4][1] - colorValues['row1'][0][1]);
-        let varB = colorValues['row1'][0][2] + percent * (colorValues['row1'][4][2] - colorValues['row1'][0][2]);
+        let varR = colorValues[0][0][0] + percent * (colorValues[0][4][0] - colorValues[0][0][0]);
+        let varG = colorValues[0][0][1] + percent * (colorValues[0][4][1] - colorValues[0][0][1]);
+        let varB = colorValues[0][0][2] + percent * (colorValues[0][4][2] - colorValues[0][0][2]);
 
         const generateColor =  `rgb( ${varR}, ${varG}, ${varB} )`
     
+        colorValues[0][index][0] = varR
+        colorValues[0][index][1] = varG
+        colorValues[0][index][2] = varB
+
+        // console.log('index of ', index, colorValues[0][index])
 
         //console.log(generateColor)
         block.style.backgroundColor = generateColor
     }
 
     // // pointThree to pointFour
-    if (index > 14 && index < 20 ) {
+    if (index > 20 && index < 25 ) {
 
-        percent = (index - 15) / 4
+        percent = (index - 20) / 4
     
-        let varR = colorValues['row5'][0][0] + percent * (colorValues['row5'][4][0] - colorValues['row5'][0][0]);
-        let varG = colorValues['row5'][0][1] + percent * (colorValues['row5'][4][1] - colorValues['row5'][0][1]);
-        let varB = colorValues['row5'][0][1] + percent * (colorValues['row5'][4][2] - colorValues['row5'][0][2]);
+        let varR = colorValues[4][0][0] + percent * (colorValues[4][4][0] - colorValues[4][0][0]);
+        let varG = colorValues[4][0][1] + percent * (colorValues[4][4][1] - colorValues[4][0][1]);
+        let varB = colorValues[4][0][1] + percent * (colorValues[4][4][2] - colorValues[4][0][2]);
 
+        // if (index > 21) {
+
+        //     colorValues[4][index][0] = varR
+        //     colorValues[4][index][1] = varG
+        //     colorValues[4][index][2] = varB
+        // }
+
+
+        console.log(colorValues[4][1])
+        // console.log(varR, varG, varB)
     
         const generateColor =  `rgb( ${varR}, ${varG}, ${varB})`
 
@@ -88,21 +99,27 @@ const col1 = document.querySelectorAll('.col-1')
 // pointOne to pointThree
 col1.forEach((block, index) => {
 
+    // console.log('block: ', block,  'index: ', index)
+
     percent = index / 4
 
-    let varR = colorValues['row1'][0][0] + percent * (colorValues['row5'][0][0] - colorValues['row1'][0][0]);
-    let varG = colorValues['row1'][0][1] + percent * (colorValues['row5'][0][1] - colorValues['row1'][0][1]);
-    let varB = colorValues['row1'][0][2] + percent * (colorValues['row5'][0][2] - colorValues['row1'][0][2]);
+    let varR = colorValues[0][0][0] + percent * (colorValues[4][0][0] - colorValues[0][0][0]);
+    let varG = colorValues[0][0][1] + percent * (colorValues[4][0][1] - colorValues[0][0][1]);
+    let varB = colorValues[0][0][2] + percent * (colorValues[4][0][2] - colorValues[0][0][2]);
 
     const generateColor =  `rgb( ${varR}, ${varG}, ${varB} )`
 
+    // colorValues[0][0][index] = varR
+    // colorValues[0][0][index] = varG
+    // colorValues[0][0][index] = varB
+
+    // console.log('index of ', index, colorValues[index][4])
 
     //console.log(generateColor)
     block.style.backgroundColor = generateColor
-
-
 })
 
+// console.log(colorValues[2])
 
 //pointTwo to PointFour
 const col5 = document.querySelectorAll('.col-5')
@@ -111,11 +128,17 @@ col5.forEach((block, index) => {
 
     percent = index / 4
 
-    let varR = colorValues['row1'][4][0] + percent * (colorValues['row5'][4][0] - colorValues['row1'][4][0]);
-    let varG = colorValues['row1'][4][1] + percent * (colorValues['row5'][4][1] - colorValues['row1'][4][1]);
-    let varB = colorValues['row1'][4][2] + percent * (colorValues['row5'][4][2] - colorValues['row1'][4][2]);
+    let varR = colorValues[0][4][0] + percent * (colorValues[4][4][0] - colorValues[0][4][0]);
+    let varG = colorValues[0][4][1] + percent * (colorValues[4][4][1] - colorValues[0][4][1]);
+    let varB = colorValues[0][4][2] + percent * (colorValues[4][4][2] - colorValues[0][4][2]);
 
     const generateColor =  `rgb( ${varR}, ${varG}, ${varB} )`
+
+    // colorValues[4][4][index] = varR
+    // colorValues[4][4][index] = varG
+    // colorValues[4][4][index] = varB
+
+    // console.log('index of ', index, colorValues[4][4][index])
 
     //console.log(generateColor)
     block.style.backgroundColor = generateColor
@@ -124,3 +147,30 @@ col5.forEach((block, index) => {
 
 const col2 = document.querySelectorAll('.col-2')
 
+
+
+
+col2.forEach((block, index) => {
+
+    percent = index / 4
+
+    let varR = colorValues[0][1][0] + percent * (colorValues[4][1][0] - colorValues[0][1][0]);
+    let varG = colorValues[0][1][1] + percent * (colorValues[4][1][1] - colorValues[0][1][1]);
+    let varB = colorValues[0][1][2] + percent * (colorValues[4][1][2] - colorValues[0][1][2]);
+
+    const generateColor =  `rgb( ${varR}, ${varG}, ${varB} )`
+
+    // colorValues[index][4][0] = varR
+    // colorValues[index][4][1] = varG
+    // colorValues[index][4][2] = varB
+
+    // console.log(generateColor)
+
+    // console.log('index of ', index, colorValues[0][index])
+
+    //console.log(generateColor)
+    block.style.backgroundColor = generateColor
+
+})
+
+console.log(colorValues)

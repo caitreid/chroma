@@ -7,7 +7,7 @@
   height: 100%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
   align-content: stretch;
   justify-content: center;
 }
@@ -42,21 +42,6 @@ body {
 
 .dragging {
   opacity: 0.25;
-}
-
-#sample {
-  height: 10rem;
-  width: 10rem;
-}
-
-#range {
-  width: 10rem;
-}
-
-#grad {
-  width: 10rem;
-  height: 2rem;
-  background-image: linear-gradient(to right, red, blue);
 }
 
 /*# sourceMappingURL=style.css.map */
