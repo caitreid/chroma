@@ -1,11 +1,20 @@
 body {
   /* Prevent the user selecting text in the example */
   user-select: none;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
 }
 
 .container {
-  max-width: 800px;
-  height: 800px;
+  margin: 0 auto;
+  max-width: 600px;
+  max-height: 600px;
+  width: 90vw;
+  height: 90vh;
 }
 
 .block-container {
@@ -17,7 +26,7 @@ body {
   justify-content: center;
 }
 .block-color {
-  height: 60%;
+  height: 100%;
   width: 100%;
 }
 
