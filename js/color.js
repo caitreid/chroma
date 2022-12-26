@@ -193,6 +193,7 @@ col3.forEach((block, index) => {
     let varB = colorValues[0][2][2] + percent * (colorValues[4][2][2] - colorValues[0][1][2]);
 
 
+    varR = (varR + colorValues[0][0][0]) / 2
     varB = (varB + colorValues[0][1][2]) / 2
     
     
@@ -222,8 +223,9 @@ col4.forEach((block, index) => {
     let varG = colorValues[0][3][1] + percent * (colorValues[4][3][1] - colorValues[0][1][1]);
     let varB = colorValues[0][3][2] + percent * (colorValues[4][3][2] - colorValues[0][1][2]);
 
-    varR = (varR + colorValues[0][3][0]) / 2
+    varR = (varR + colorValues[0][2][0]) / 2
     varB = (varB + colorValues[0][2][2]) / 2
+ 
 
     
     
