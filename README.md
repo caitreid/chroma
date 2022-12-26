@@ -41,3 +41,14 @@ However it will need to be constructed with
 ## Commands
 
 `sass --watch scss/style.scss:css/style.css`
+
+## TO DO
+Functionality:
+- When an item is dragged over another space, the drop event moves the existing square, replacing it with the last item's position
+- Tabulate number of moves
+- Scramble board
+- Create Puzzle game logic
+- Create Solution game logic
+
+Appearance:
+- Give each square a generated css color based on a gradient pattern

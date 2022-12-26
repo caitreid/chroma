@@ -1,36 +1,4 @@
-// // Get the element by id
-// let elements = document.querySelectorAll('.block-color')
 
-// function dragstart_handler(ev) {
-
-//     // Add the target element's id to the data transfer object
-//     ev.dataTransfer.setData("text/html", ev.target.outerHTML);
-//     ev.dataTransfer.dropEffect = "move";
-
-//     console.log('dragggging')
-// }
-
-// function drop_handler(ev) {
-//     ev.preventDefault();
-//     // Get the id of the target and add the moved element to the target's DOM
-//     const data = ev.dataTransfer.getData("text/html", ev.target.outerHTML);
-//     ev.target.appendChild(document.getElementById(data));
-// }
-
-
-// let dropZone = document.getElementById(17)
-
-// window.addEventListener("DOMContentLoaded", () => {
-
-//     // Add the ondragstart event listener
-//     elements.forEach(element => { element.addEventListener("dragstart", dragstart_handler); });
-
-//     dropZone.addEventListener('dragend', drop_handler)
-// });
-  
-
-
-// ------------
 let dragged;
 
 /* events fired on the draggable target */
@@ -74,12 +42,7 @@ droptargets.forEach(droptarget => droptarget.addEventListener("dragenter", (even
   }
 }))
 
-// target.addEventListener("dragenter", (event) => {
-//   // highlight potential drop target when the draggable element enters it
-//   if (event.target.classList.contains("dropzone")) {
-//     event.target.classList.add("dragover");
-//   }
-// });
+
 
 droptargets.forEach(droptarget => droptarget.addEventListener("dragleave", (event)=> {
       // reset background of potential drop target when the draggable element leaves it
@@ -88,12 +51,7 @@ droptargets.forEach(droptarget => droptarget.addEventListener("dragleave", (even
   }
 }))
 
-// target.addEventListener("dragleave", (event) => {
-//   // reset background of potential drop target when the draggable element leaves it
-//   if (event.target.classList.contains("dropzone")) {
-//     event.target.classList.remove("dragover");
-//   }
-// });
+
 
 
 droptargets.forEach(droptarget => droptarget.addEventListener("drop", (event) => {
@@ -112,12 +70,22 @@ droptargets.forEach(droptarget => droptarget.addEventListener("drop", (event) =>
 
 }))
 
-// target.addEventListener("drop", (event) => {
-//   // prevent default action (open as link for some elements)
-//   event.preventDefault();
-//   // move dragged element to the selected drop target
-//   if (event.target.classList.contains("dropzone")) {
-//     event.target.classList.remove("dragover");
-//     event.target.appendChild(dragged);
-//   }
-// });
+
+
+// create a variable that holds the place for one of the RGB values
+// create a for-loop that increments that value 
+// put it in a function
+// pass the function to a SetInterval method, running the function once
+// every second or something like that
+
+// do this for color in the gradient
+
+// find out which 
+
+// const postcssPresetEnv = require('postcss-preset-env');
+
+// const yourConfig = {
+// 	plugins: [
+// 		postcssPresetEnv({ stage: 0 })
+// 	]
+// }

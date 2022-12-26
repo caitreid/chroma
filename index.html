@@ -5,73 +5,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Chroma</title>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
     <h1>Chroma | Color matching puzzle game</h1>
 
-    <div class="dropzone">
-        <div class="draggable" draggable="true">This div is draggable</div>
-    </div>
+    <div id="grad"></div>
+    <input type="range" min="1" max="100" value="0" id="range">
+    <div id="sample" style="background-color:rgb(255,0,0);"></div>  
 
-    <div class="dropzone" id="droptarget"></div>
-
-
-
+    <br>
     <div class="container">
         <div class="block-container">
             <div class="dropzone droptarget">
-                <div class="block-color draggable" id="block-1" draggable="true">1</div>
+                <div class="block-color draggable col-1" id="block-1" data-id="1" draggable="true">1</div>
             </div>
             <div class="dropzone droptarget">
-                <div class="block-color draggable" id="2" draggable="true">2</div>
+                <div class="block-color draggable col-2" id="block-2" data-id="2" draggable="true">2</div>
             </div>
             <div class="dropzone droptarget">
-                <div class="block-color" id="3" draggable="true">3</div>
+                <div class="block-color draggable col-3" id="block-3" data-id="3" draggable="true">3</div>
             </div>
             <div class="dropzone droptarget">
-                <div class="block-color" id="4" draggable="true">4</div>
+                <div class="block-color draggable col-4" id="block-4" data-id="4" draggable="true">4</div>
             </div>
             <div class="dropzone droptarget">
-                <div class="block-color" id="5" draggable="true">5</div>
+                <div class="block-color draggable col-5" id="5" data-id="5" draggable="true">5</div>
             </div>
             <div class="dropzone droptarget">
-                <div class="block-color" id="6" draggable="true">6</div>
+                <div class="block-color draggable col-1" id="6" data-id="6" draggable="true">6</div>
             </div>
             <div class="dropzone droptarget">
-                <div class="block-color" id="7" draggable="true">7</div>
+                <div class="block-color draggable col-2" id="7" data-id="7" draggable="true">7</div>
             </div>
             <div class="dropzone droptarget">
-                <div class="block-color" id="8" draggable="true">8</div>
+                <div class="block-color draggable col-3" id="8" data-id="8" draggable="true">8</div>
             </div>
             <div class="dropzone droptarget">
-                <div class="block-color" id="9" draggable="true">9</div>
+                <div class="block-color draggable col-4" id="9" data-id="9" draggable="true">9</div>
             </div>
             <div class="dropzone droptarget">
-                <div class="block-color" id="10" draggable="true">10</div>
+                <div class="block-color draggable col-5" id="10" data-id="10" draggable="true">10</div>
             </div>
             <div class="dropzone droptarget">
-                <div class="block-color" id="11" draggable="true">11</div>
+                <div class="block-color draggable col-1" id="11" data-id="11" draggable="true">11</div>
             </div>
             <div class="dropzone droptarget">
-                <div class="block-color" id="12" draggable="true">12</div>
+                <div class="block-color draggable col-2" id="12" data-id="12" draggable="true">12</div>
             </div>
             <div class="dropzone droptarget">
-                <div class="block-color" id="13" draggable="true">13</div>
+                <div class="block-color draggable col-3" id="13" data-id="13" draggable="true">13</div>
             </div>
             <div class="dropzone droptarget">
-                <div class="block-color" id="14" draggable="true">14</div>
+                <div class="block-color draggable col-4" id="14" data-id="14" draggable="true">14</div>
             </div>
             <div class="dropzone droptarget">
-                <div class="block-color" id="15" draggable="true">15</div>
+                <div class="block-color draggable col-5" id="15" data-id="15" draggable="true">15</div>
             </div>
             <div class="dropzone droptarget">
-                <div class="block-color" id="16" draggable="true">16</div>
+                <div class="block-color draggable col-1" id="16" data-id="16" draggable="true">16</div>
             </div>
-
+            <div class="dropzone droptarget">
+                <div class="block-color draggable col-2" id="17" data-id="17" draggable="true">17</div>
+            </div>
+            <div class="dropzone droptarget">
+                <div class="block-color draggable col-3" id="18" data-id="18" draggable="true">18</div>
+            </div>
+            <div class="dropzone droptarget">
+                <div class="block-color draggable col-4" id="19" data-id="19" draggable="true">19</div>
+            </div>
+            <div class="dropzone droptarget">
+                <div class="block-color draggable col-5" id="20" data-id="20" draggable="true">20</div>
+            </div>
         </div>
     </div>
 
 	<script src="js/script.js"></script>
+    <script src="js/color.js"></script>
   </body>
 </html>
