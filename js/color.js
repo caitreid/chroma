@@ -1,96 +1,46 @@
-let blocks = document.querySelectorAll('.block-color');
 
-// let varR = 0;
-// let varB = Math.floor(Math.random() * 255)
-// let varG = 255;
+// var sample = document.querySelector("#sample")
+// var range = document.querySelector("#range")
 
-// blocks.forEach(block => {
+// // // rgb(255,0,0)
+// // var color1_red=255
+// // var color1_green=0
+// // var color1_blue=0
 
-//     console.log(varB)
-    
-//     varB += 10
-
-//     const generateColor =  `rgb( ${varR}, ${varB}, ${varG})`
-
-//     block.style.backgroundColor = generateColor
-
-// }
+// // // rgb(0,0,255)
+// // var color2_red=0
+// // var color2_green=0
+// // var color2_blue=255
 
 
-
-
-
-
-
-
-
-
-
-
-let pointOne = document.querySelector("#block-1")
-let pointTwo = document.querySelector("#block-4")
-let pointThree = document.querySelector("#block-12")
-let pointFour = document.querySelector("#block-16")
-
-
-var sample=document.querySelector("#sample")
-var range=document.querySelector("#range")
-
-// pointOne
-// rgb(143, 201, 200)
-var color1_red=143
-var color1_green=201
-var color1_blue=200
-
-// pointTwo
-// rgb(230, 121, 97)
-var color2_red=243
-var color2_green=229
-var color2_blue=118
-
-// pointThree
-var color3_red = 23
-var color3_green = 54
-var color3_blue = 211
-
-// pointFour
-var color4_red = 230
-var color4_green = 121
-var color4_blue = 97
-
-
-
-document.querySelector("#range").addEventListener("input",(event)=>{
- let percent= range.value/100.0
+// document.querySelector("#range").addEventListener("input",(event)=>{
+//  let percent = range.value/100.0
  
- let resultRed = color1_red + percent * (color2_red - color1_red);
- let resultGreen = color1_green + percent * (color2_green - color1_green);
- let resultBlue = color1_blue + percent * (color2_blue - color1_blue);
+//  let resultRed = color1_red + percent * (color2_red - color1_red);
+//  let resultGreen = color1_green + percent * (color2_green - color1_green);
+//  let resultBlue = color1_blue + percent * (color2_blue - color1_blue);
  
- sample.style.backgroundColor=`rgb(${resultRed},${resultGreen},${resultBlue})`
-})
+//  sample.style.backgroundColor=`rgb(${resultRed},${resultGreen},${resultBlue})`
+// })
 
-const genColors = () => {
-    let percentage = [0, 0.25, 0.5, 0.75, 1]
+// INITIAL VALUES
 
-    for (let i = 0; i < percentage.length; i++) {
+// let colorValues = [
+//     [1,2,3], [4,5,6], [7,8,9]
+// ]
 
-        console.log('percentage', percentage[i])
-
-        // let varR = color1_red + percent * (color3_red - color1_red);
-        // let varG = color1_green + percent * (color3_green - color1_green);
-        // let varB = color1_blue + percent * (color3_blue - color1_blue);
-
-
-        // const generateColor =  `rgb( ${varR}, ${varG}, ${varB})`
-
-        // return generateColor
-    }
+let colorValues = {
+    row1: [[143, 201, 200], [], [], [], [243, 229, 118]],
+    row2: [[], [], [], [], []],
+    row3: [[], [], [], [], []],
+    row4: [[], [], [], [], []],
+    row5: [[23, 54, 211], [], [], [], [240, 73, 36]]
 }
 
-blocksRowOne = document.querySelectorAll('.block-color');
 
-// console.log(blocksRowOne)
+
+let blocks = document.querySelectorAll('.block-color');
+
 
 blocks.forEach((block, index) => {
 
@@ -103,16 +53,15 @@ blocks.forEach((block, index) => {
 
         // console.log(percent)
     
-        let varR = color1_red + percent * (color2_red - color1_red);
-        let varG = color1_green + percent * (color2_green - color1_green);
-        let varB = color1_blue + percent * (color2_blue - color1_blue);
+        let varR = colorValues['row1'][0][0] + percent * (colorValues['row1'][4][0] - colorValues['row1'][0][0]);
+        let varG = colorValues['row1'][0][1] + percent * (colorValues['row1'][4][1] - colorValues['row1'][0][1]);
+        let varB = colorValues['row1'][0][2] + percent * (colorValues['row1'][4][2] - colorValues['row1'][0][2]);
 
         const generateColor =  `rgb( ${varR}, ${varG}, ${varB} )`
     
 
         //console.log(generateColor)
         block.style.backgroundColor = generateColor
-
     }
 
     // // pointThree to pointFour
@@ -120,10 +69,10 @@ blocks.forEach((block, index) => {
 
         percent = (index - 15) / 4
     
-        let varR = color3_red + percent * (color4_red - color3_red);
-        let varG = color3_green + percent * (color4_green - color3_green);
-        let varB = color3_blue + percent * (color4_blue - color3_blue);
-    
+        let varR = colorValues['row5'][0][0] + percent * (colorValues['row5'][4][0] - colorValues['row5'][0][0]);
+        let varG = colorValues['row5'][0][1] + percent * (colorValues['row5'][4][1] - colorValues['row5'][0][1]);
+        let varB = colorValues['row5'][0][1] + percent * (colorValues['row5'][4][2] - colorValues['row5'][0][2]);
+
     
         const generateColor =  `rgb( ${varR}, ${varG}, ${varB})`
 
@@ -132,26 +81,24 @@ blocks.forEach((block, index) => {
 
     }
 
-
-
 })
 
 const col1 = document.querySelectorAll('.col-1')
     
 // pointOne to pointThree
-col1.forEach((item, index) => {
+col1.forEach((block, index) => {
 
     percent = index / 4
 
-    let varR = color1_red + percent * (color3_red - color1_red);
-    let varG = color1_green + percent * (color3_green - color1_green);
-    let varB = color1_blue + percent * (color3_blue - color1_blue);
+    let varR = colorValues['row1'][0][0] + percent * (colorValues['row5'][0][0] - colorValues['row1'][0][0]);
+    let varG = colorValues['row1'][0][1] + percent * (colorValues['row5'][0][1] - colorValues['row1'][0][1]);
+    let varB = colorValues['row1'][0][2] + percent * (colorValues['row5'][0][2] - colorValues['row1'][0][2]);
 
     const generateColor =  `rgb( ${varR}, ${varG}, ${varB} )`
 
 
     //console.log(generateColor)
-    item.style.backgroundColor = generateColor
+    block.style.backgroundColor = generateColor
 
 
 })
@@ -160,35 +107,20 @@ col1.forEach((item, index) => {
 //pointTwo to PointFour
 const col5 = document.querySelectorAll('.col-5')
 
-col5.forEach((item, index) => {
+col5.forEach((block, index) => {
 
     percent = index / 4
 
-    let varR = color2_red + percent * (color4_red - color2_red);
-    let varG = color2_green + percent * (color4_green - color2_green);
-    let varB = color2_blue + percent * (color4_blue - color2_blue);
+    let varR = colorValues['row1'][4][0] + percent * (colorValues['row5'][4][0] - colorValues['row1'][4][0]);
+    let varG = colorValues['row1'][4][1] + percent * (colorValues['row5'][4][1] - colorValues['row1'][4][1]);
+    let varB = colorValues['row1'][4][2] + percent * (colorValues['row5'][4][2] - colorValues['row1'][4][2]);
 
     const generateColor =  `rgb( ${varR}, ${varG}, ${varB} )`
 
-
     //console.log(generateColor)
-    item.style.backgroundColor = generateColor
+    block.style.backgroundColor = generateColor
 
 })
 
 const col2 = document.querySelectorAll('.col-2')
 
-col2.forEach((item, index) => {
-
-    // let firstColor = item[0].style.backgroundColor
-
-    // console.log(firstColor)
-
-    if (index === 0) {
-        let firstColor = item.style.backgroundColor
-
-        console.log(firstColor)
-    }
-
-
-})
