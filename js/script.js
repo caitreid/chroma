@@ -10,7 +10,14 @@ const elements = document.querySelectorAll(".draggable");
 
 elements.forEach(element => element.addEventListener("dragstart", (event)=> {
     // store a ref. on the dragged elem
+
   dragged = event.target;
+
+  // Add this element's id to the drag payload so the drop handler will
+  // know which element to add to its tree
+  event.dataTransfer.setData("text", event.target.id);
+  event.dataTransfer.effectAllowed = "move";
+
   // make it half transparent
   event.target.classList.add("dragging");
 }))
@@ -27,14 +34,12 @@ const droptargets = document.querySelectorAll(".dropzone");
 
 
 droptargets.forEach(droptarget => droptarget.addEventListener("dragover", (event)=> {
-    // prevent default to allow drop
+
     event.preventDefault();
 }, false))
 
 
 droptargets.forEach(droptarget => droptarget.addEventListener("dragenter", (event) => {
-      // highlight potential drop target when the draggable element enters it
-
 
   console.log('event.target', event.target)
   if (event.target.classList.contains("dropzone")) {
@@ -45,13 +50,11 @@ droptargets.forEach(droptarget => droptarget.addEventListener("dragenter", (even
 
 
 droptargets.forEach(droptarget => droptarget.addEventListener("dragleave", (event)=> {
-      // reset background of potential drop target when the draggable element leaves it
+  // reset background of potential drop target when the draggable element leaves it
   if (event.target.classList.contains("dropzone")) {
     event.target.classList.remove("dragover");
   }
 }))
-
-
 
 
 droptargets.forEach(droptarget => droptarget.addEventListener("drop", (event) => {
@@ -71,7 +74,6 @@ droptargets.forEach(droptarget => droptarget.addEventListener("drop", (event) =>
 }))
 
 
-
 // create a variable that holds the place for one of the RGB values
 // create a for-loop that increments that value 
 // put it in a function
@@ -80,12 +82,3 @@ droptargets.forEach(droptarget => droptarget.addEventListener("drop", (event) =>
 
 // do this for color in the gradient
 
-// find out which 
-
-// const postcssPresetEnv = require('postcss-preset-env');
-
-// const yourConfig = {
-// 	plugins: [
-// 		postcssPresetEnv({ stage: 0 })
-// 	]
-// }
