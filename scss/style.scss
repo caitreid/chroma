@@ -13,28 +13,16 @@
         justify-content: center;
     }
     &-container, &-color {
-        border: 1px black solid;
+        // border: 1px black solid;
     }
     &-color {
         // background-color: aqua;
-        height: 50%;
+        height: 100%;
         width: 100%;
     }
     
 }
 
-// #block {
-//     &-1 {
-//         // background-color: pink;
-//     }
-// }
-
-/* EXAMPLE */
-
-body {
-    /* Prevent the user selecting text in the example */
-    user-select: none;
-}
   
 #draggable {
     text-align: center;
@@ -42,9 +30,9 @@ body {
 }
 
 .dropzone {
-    background: blueviolet;
-    padding: 10px;
-    border: 1px black solid;
+    // background: blueviolet;
+    // padding: 10px;
+    // border: 1px black solid;
 }
 
 .dropzone.dragover {

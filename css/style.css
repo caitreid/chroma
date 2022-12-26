@@ -11,29 +11,14 @@
   align-content: stretch;
   justify-content: center;
 }
-.block-container, .block-color {
-  border: 1px black solid;
-}
 .block-color {
-  height: 50%;
+  height: 100%;
   width: 100%;
-}
-
-/* EXAMPLE */
-body {
-  /* Prevent the user selecting text in the example */
-  user-select: none;
 }
 
 #draggable {
   text-align: center;
   background: white;
-}
-
-.dropzone {
-  background: blueviolet;
-  padding: 10px;
-  border: 1px black solid;
 }
 
 .dropzone.dragover {
