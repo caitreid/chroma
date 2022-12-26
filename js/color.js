@@ -1,33 +1,4 @@
 
-// var sample = document.querySelector("#sample")
-// var range = document.querySelector("#range")
-
-// // // rgb(255,0,0)
-// // var color1_red=255
-// // var color1_green=0
-// // var color1_blue=0
-
-// // // rgb(0,0,255)
-// // var color2_red=0
-// // var color2_green=0
-// // var color2_blue=255
-
-
-// document.querySelector("#range").addEventListener("input",(event)=>{
-//  let percent = range.value/100.0
- 
-//  let resultRed = color1_red + percent * (color2_red - color1_red);
-//  let resultGreen = color1_green + percent * (color2_green - color1_green);
-//  let resultBlue = color1_blue + percent * (color2_blue - color1_blue);
- 
-//  sample.style.backgroundColor=`rgb(${resultRed},${resultGreen},${resultBlue})`
-// })
-
-// INITIAL VALUES
-
-// let colorValues = [
-//     [1,2,3], [4,5,6], [7,8,9]
-// ]
 
 let colorValues = {
     0: [[143, 201, 200], [], [], [], [243, 229, 118]],
@@ -245,3 +216,7 @@ col4.forEach((block, index) => {
     block.style.backgroundColor = generateColor
 
 })
+
+
+// make sure you're updating the object to hold all of the values
+// not sure when that will come in handy
