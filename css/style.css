@@ -1,3 +1,8 @@
+body {
+  /* Prevent the user selecting text in the example */
+  user-select: none;
+}
+
 .container {
   max-width: 800px;
   height: 800px;
@@ -12,21 +17,41 @@
   justify-content: center;
 }
 .block-color {
-  height: 100%;
+  height: 60%;
   width: 100%;
 }
 
-#draggable {
+.draggable {
   text-align: center;
   background: white;
+  cursor: move; /* fallback if grab cursor is unsupported */
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+
+.draggable:active {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+
+.dragging:active, .dragging::selection {
+  cursor: grab;
+}
+
+.dropzone {
+  cursor: grab;
 }
 
 .dropzone.dragover {
   background-color: rgb(236, 75, 236);
+  cursor: grab;
 }
 
 .dragging {
   opacity: 0.25;
+  cursor: grab;
 }
 
 /*# sourceMappingURL=style.css.map */
