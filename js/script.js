@@ -30,7 +30,7 @@ elements.forEach(element => element.addEventListener("dragend", (event)=> {
 
 
 /* events fired on the drop targets */
-const droptargets = document.querySelectorAll(".dropzone");
+const droptargets = document.querySelectorAll(".droptarget");
 
 
 droptargets.forEach(droptarget => droptarget.addEventListener("dragover", (event)=> {
@@ -44,27 +44,25 @@ droptargets.forEach(droptarget => droptarget.addEventListener("dragenter", (even
 
   // console.log('event.target ', event.target)
 
-  if (event.target.parentElement.classList.contains("dropzone")) {
+  if (event.target.classList.contains("droptarget")) {
 
-    // event.target.classList.add("dragover"); // adds pink to BG 
-
-    console.log('parent has dropzone')
+    event.target.classList.add("dragover"); // adds pink to BG 
     
   }
 
 }))
 
 
-// droptargets.forEach(droptarget => droptarget.addEventListener("dragleave", (event)=> {
+droptargets.forEach(droptarget => droptarget.addEventListener("dragleave", (event)=> {
 
-//   // reset background of potential drop target when the draggable element leaves it
-//   if (event.target.classList.contains("dropzone")) {
+  // reset background of potential drop target when the draggable element leaves it
+  if (event.target.classList.contains("droptarget")) {
 
-//     event.target.classList.remove("dragover");
+    event.target.classList.remove("dragover");
 
-//   }
+  }
 
-// }))
+}))
 
 
 droptargets.forEach(droptarget => droptarget.addEventListener("drop", (event) => {
@@ -75,12 +73,12 @@ droptargets.forEach(droptarget => droptarget.addEventListener("drop", (event) =>
   let newPlace = event.target.parentElement
 
   // move dragged element to the selected drop target
-  if (newPlace.classList.contains("dropzone")) {
+  if (newPlace.classList.contains("droptarget")) {
 
     console.log('parent ', dragged.parentElement)
     // event.target.classList.remove("dragover");
     dragged.parentElement.appendChild(event.target)
-    
+
     newPlace.appendChild(dragged);
 
   }
