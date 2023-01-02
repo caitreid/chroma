@@ -1,11 +1,16 @@
 
 
+let pointOne = [143, 201, 200]
+let pointTwo = [243, 229, 118]
+let pointThree = [23, 54, 211]
+let pointFour = [230, 97, 125]
+
 let colorValues = {
-    0: [[143, 201, 200], [], [], [], [243, 229, 118]],
+    0: [pointOne, [], [], [], pointTwo],
     1: [[], [], [], [], []],
     2: [[], [], [], [], []],
     3: [[], [], [], [], []],
-    4: [[23, 54, 211], [], [], [], [230, 97, 125]]
+    4: [pointThree, [], [], [], pointFour]
 }
 
 
@@ -220,3 +225,15 @@ col4.forEach((block, index) => {
 
 // make sure you're updating the object to hold all of the values
 // not sure when that will come in handy
+
+
+const startGame = () => {
+
+    console.log('start game')
+}
+
+
+let play = document.querySelector('.button-play')
+
+play.addEventListener("click", startGame);
+

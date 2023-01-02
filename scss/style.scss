@@ -7,6 +7,15 @@ body {
     justify-content: center;
     height: 100vh;
     width: 100vw;
+    color:white;
+}
+.button-play {
+    color:white;
+    background-color: black;
+    padding:1rem;
+}
+.button-play:hover {
+    cursor: pointer;
 }
 
 .container {
@@ -32,6 +41,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: not-allowed;
 }
   
 .draggable {
@@ -56,14 +66,14 @@ body {
 }
 
 .dropzone {
-    cursor: grab;
+    // cursor: grab;
     // background: blueviolet;
     // padding: 10px;
     border: 1px black solid;
 }
 
 .dragover {
-    cursor: grab;
+    // cursor: grab;
 }
 
 .dragging {
