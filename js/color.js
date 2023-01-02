@@ -227,13 +227,4 @@ col4.forEach((block, index) => {
 // not sure when that will come in handy
 
 
-const startGame = () => {
-
-    console.log('start game')
-}
-
-
-let play = document.querySelector('.button-play')
-
-play.addEventListener("click", startGame);
 

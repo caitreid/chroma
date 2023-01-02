@@ -75,7 +75,7 @@ droptargets.forEach(droptarget => droptarget.addEventListener("drop", (event) =>
   // move dragged element to the selected drop target
   if (newPlace.classList.contains("droptarget")) {
 
-    console.log('parent ', dragged.parentElement)
+    // console.log('parent ', dragged.parentElement)
     // event.target.classList.remove("dragover");
     dragged.parentElement.appendChild(event.target)
 
