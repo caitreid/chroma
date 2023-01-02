@@ -40,29 +40,29 @@ droptargets.forEach(droptarget => droptarget.addEventListener("dragover", (event
 }, false))
 
 
-droptargets.forEach(droptarget => droptarget.addEventListener("dragenter", (event) => {
+// droptargets.forEach(droptarget => droptarget.addEventListener("dragenter", (event) => {
 
-  // console.log('event.target ', event.target)
+//   // console.log('event.target ', event.target)
 
-  if (event.target.classList.contains("droptarget")) {
+//   if (event.target.parentElement.classList.contains("droptarget")) {
 
-    event.target.classList.add("dragover"); // adds pink to BG 
+//     event.target.classList.add("dragover"); // adds pink to BG 
     
-  }
+//   }
 
-}))
+// }))
 
 
-droptargets.forEach(droptarget => droptarget.addEventListener("dragleave", (event)=> {
+// droptargets.forEach(droptarget => droptarget.addEventListener("dragleave", (event)=> {
 
-  // reset background of potential drop target when the draggable element leaves it
-  if (event.target.classList.contains("droptarget")) {
+//   // reset background of potential drop target when the draggable element leaves it
+//   if (event.target.parentElement.classList.contains("droptarget")) {
 
-    event.target.classList.remove("dragover");
+//     event.target.classList.remove("dragover");
 
-  }
+//   }
 
-}))
+// }))
 
 
 droptargets.forEach(droptarget => droptarget.addEventListener("drop", (event) => {

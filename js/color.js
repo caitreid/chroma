@@ -10,7 +10,7 @@ let colorValues = {
 
 
 
-let blocks = document.querySelectorAll('.block-color');
+let blocks = document.querySelectorAll('.color');
 
 
 blocks.forEach((block, index) => {
