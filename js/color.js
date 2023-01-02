@@ -56,7 +56,7 @@ blocks.forEach((block, index) => {
         // }
 
 
-        console.log('index ', index, colorValues[4][1])
+        // console.log('index ', index, colorValues[4][1])
         // console.log(varR, varG, varB)
     
         const generateColor =  `rgb( ${varR}, ${varG}, ${varB})`
@@ -151,7 +151,7 @@ col2.forEach((block, index) => {
 
 })
 
-console.log('colorValues: ', colorValues)
+// console.log('colorValues: ', colorValues)
 
 const col3 = document.querySelectorAll('.col-3')
 

@@ -18,6 +18,7 @@ body {
 }
 
 .block-container {
+  background-color: white;
   height: 100%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -54,9 +55,10 @@ body {
 
 .dropzone {
   cursor: grab;
+  border: 1px black solid;
 }
 
-.dropzone.dragover {
+.dragover {
   background-color: rgb(236, 75, 236);
   cursor: grab;
 }
