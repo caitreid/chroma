@@ -1,3 +1,7 @@
+/* events fired on the drop targets */
+const droptargets = document.querySelectorAll(".droptarget");
+
+
 
 const setupBoard = () => {
 
@@ -30,8 +34,7 @@ const setupBoard = () => {
   }))
 
 
-  /* events fired on the drop targets */
-  const droptargets = document.querySelectorAll(".droptarget");
+
 
 
   droptargets.forEach(droptarget => droptarget.addEventListener("dragover", (event)=> {
@@ -90,9 +93,29 @@ const setupBoard = () => {
 
 }
 
+// Fisher–Yates shuffle
+function shuffle(array) {
+  let currentIndex = array.length,  randomIndex;
 
+  // While there remain elements to shuffle.
+  while (currentIndex != 0) {
 
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
 
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+
+  return array;
+}
+
+// Used like so
+// var arr = [2, 11, 37, 42];
+// shuffle(arr);
+// console.log(arr);
 
 
 const startGame = () => {
@@ -101,31 +124,81 @@ const startGame = () => {
 
   let blocks = document.querySelectorAll('.color');
 
+  let newArr = [];
+
+  // set up the edges of the game
   blocks.forEach((block, index) => {
 
-      // all outside points
-      if (index < 5 || index > 19 && index < 25 || block.classList.contains('col-1' ) || block.classList.contains('col-5')) {
-          block.innerHTML = 
-              `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="50" cy="50" r="5" />
-              </svg>`
+    // all outside points
+    if (index < 5 || index > 19 && index < 25 || block.classList.contains('col-1' ) || block.classList.contains('col-5')) {
+      
+      block.innerHTML = 
+          `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="5" />
+          </svg>`
 
-          block.classList.remove('draggable')
-      }
-      else {
-        block.classList.add('draggable')
-      }
+      //block.classList.remove('draggable')
 
+    }
+
+    else {
+
+      block.classList.add('draggable')
+
+      newArr.push(block.dataset.id)
+      
+    }
   })
 
+  // inner game
+  shuffle(newArr)
+  console.log('shuffle ', newArr)
+
+  const innerSquares = document.querySelectorAll('.draggable')
+
+  innerSquares.forEach(square => { square.remove() } ) // takes them off the board
+
+  let shuffleList = []
+
+  // create a list of dropzones that match the shuffled order of the new Array
+  for (i = 0; i < newArr.length; i++ ){
+
+    droptargets.forEach(target => {
+
+      if (target.dataset.id === newArr[i]) {
+
+        shuffleList.push(target)
+
+      }
+
+    })
+
+  }
+
+
+
+  for (let i = 0; i < shuffleList.length; i ++) {
+
+    for (let i = 0; i < innerSquares.length; i++) {
+
+      shuffleList[i].appendChild(innerSquares[i])
+
+    }
+  }
+
+
+  console.log('shuffle list ', shuffleList)
+
+  // needs to come at the end, it seems
   setupBoard()
+  
 
 }
 
 
 const checkGame = () => {
 
-  let droptargets = document.querySelectorAll('.droptarget')
+  // let droptargets = document.querySelectorAll('.droptarget')
   let blocks = document.querySelectorAll('.color')
 
   blocks.forEach((block, blockIndex) => {

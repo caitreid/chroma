@@ -8,13 +8,13 @@ body {
   font-family: "Unbounded", cursive;
 }
 
-.button-play {
+.button {
   color: white;
   background-color: black;
   padding: 1rem;
 }
 
-.button-play:hover {
+.button:hover {
   cursor: pointer;
 }
 
