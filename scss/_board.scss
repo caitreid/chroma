@@ -25,10 +25,16 @@ p {
     margin: 2rem 0;
     border: 1px solid white;
 }
+
 .button:hover {
     cursor: pointer;
     background-color: rgb(255, 23, 170);
 }
+.button-reset:hover {
+    background-color: white;
+    color:black;
+}
+
 
 .container {
     margin: 0 auto;

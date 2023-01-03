@@ -237,11 +237,12 @@ const resetGame = () => {
   
     block.innerHTML = ""
 
-
     block.classList.remove('draggable')
 
-
+    reset.classList.add('hide')
+    play.classList.remove('hide')
     // put elements back in proper order if stopping mid-game
+
 
 
 
