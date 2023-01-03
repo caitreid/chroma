@@ -198,6 +198,8 @@ const startGame = () => {
 
 const checkGame = () => {
 
+  let count = 0;
+
   // let droptargets = document.querySelectorAll('.droptarget')
   let blocks = document.querySelectorAll('.color')
 
@@ -206,11 +208,17 @@ const checkGame = () => {
     // if block's id matches its parent's id
     if (block.dataset.id === block.parentElement.dataset.id) {
       
-      console.log('match')
+      count++
 
-      // goal: get 25 matches
+
+      if (count === 25) {
+        
+        console.log('you won!!!')
+
+
+      }
+
     }
-      
 
   })
 
