@@ -1,3 +1,5 @@
+// let blocks = document.querySelectorAll('.color'); // DECLARED IN color.js
+
 /* events fired on the drop targets */
 const droptargets = document.querySelectorAll(".droptarget");
 
@@ -122,7 +124,7 @@ const startGame = () => {
 
   console.log('start game')
 
-  let blocks = document.querySelectorAll('.color');
+  
 
   let newArr = [];
 
@@ -213,8 +215,9 @@ const checkGame = () => {
 
       if (count === 25) {
         
-        console.log('you won!!!')
+        alert('you won!!!')
 
+        resetGame()
 
       }
 
@@ -224,12 +227,32 @@ const checkGame = () => {
 
 }
 
-checkGame()
+const resetGame = () => {
+
+  console.log('reset game');
+
+  blocks.forEach((block, index) => {
+  
+    block.innerHTML = ""
+
+
+    block.classList.remove('draggable')
+
+
+    // put elements back in proper order if stopping mid-game
+
+
+
+  })
+}
 
 let play = document.querySelector('.button-play')
 
 play.addEventListener("click", startGame);
 
+let reset = document.querySelector('.button-reset')
+
+reset.addEventListener("click", resetGame)
 
 // let color = document.querySelector('.color')
 

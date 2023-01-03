@@ -52,3 +52,11 @@ Functionality:
 
 Appearance:
 - Give each square a generated css color based on a gradient pattern
+
+
+# README REQs
+
+Technologies used
+Approach taken
+Installation instructions
+Unsolved problems, etc.
