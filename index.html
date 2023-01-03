@@ -11,13 +11,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;700;800&display=swap" rel="stylesheet">
   </head>
   <body>
-    <div>
-        <h1>Chroma</h1>
-        <p>To begin, click the play button. It will scramble the board. Drag and drop squares to arrange puzzle.</p>
-        <button class="button button-play">PLAY</button>
-        <button class="button button-reset">RESET</button>
-    </div>
     <div class="container">
+        <div class="block-intro">
+            <h1>Chroma</h1>
+            <p>To begin, click PLAY. It will scramble the board. Drag and drop squares to solve the puzzle.</p>
+            <button class="button button-play">PLAY</button>
+            <button class="button button-reset hide">RESET</button>
+        </div>
         <div class="block-container">
             <div class="droptarget" data-id="1">
                 <div class="color col-1" data-id="1" draggable="true"></div>

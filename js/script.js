@@ -124,6 +124,8 @@ const startGame = () => {
 
   console.log('start game')
 
+  reset.classList.remove('hide')
+  play.classList.add('hide')
   
 
   let newArr = [];
@@ -254,6 +256,3 @@ let reset = document.querySelector('.button-reset')
 
 reset.addEventListener("click", resetGame)
 
-// let color = document.querySelector('.color')
-
-// color.addEventListener('click', checkGame)

@@ -5,27 +5,38 @@ body {
     // display: flex;
     // align-items: center;
     // justify-content: center;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    // width: 100vw;
     color:white;
     font-family: 'Unbounded', cursive;
+    padding: 2rem;
+}
+h1 {
+    font-size: 4rem;
+}
+p {
+    font-size: 2rem;
 }
 .button {
     color:white;
     background-color: black;
+    font-family: 'Unbounded', cursive;
     padding:1rem;
     margin: 2rem 0;
+    border: 1px solid white;
 }
 .button:hover {
     cursor: pointer;
+    background-color: rgb(255, 23, 170);
 }
 
 .container {
     margin: 0 auto;
     max-width: 700px;
-    max-height: 700px;
+    // max-height: 700px;
     width: 100%;
     height: 100%;
+    padding-bottom: 5rem;
 }
 
 .block-container {
@@ -36,6 +47,8 @@ body {
     grid-template-rows: repeat(5, 1fr);
     align-content: stretch;
     justify-content: center;
+    padding-bottom: 4rem;
+    background-color: black;
 }
 .color {
     height: 100%;
@@ -82,4 +95,7 @@ body {
     // opacity: 0.25; // do i want to keep this ?
     cursor: grab;
 
+}
+.hide {
+    display:none;
 }
