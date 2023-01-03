@@ -3,7 +3,7 @@
 /* events fired on the drop targets */
 const droptargets = document.querySelectorAll(".droptarget");
 
-
+const winner = document.querySelector('.intro-play__winner');
 
 const setupBoard = () => {
 
@@ -156,7 +156,7 @@ const startGame = () => {
 
   // inner game
   shuffle(newArr)
-  console.log('shuffle ', newArr)
+  //console.log('shuffle ', newArr)
 
   const innerSquares = document.querySelectorAll('.draggable')
 
@@ -191,7 +191,7 @@ const startGame = () => {
   }
 
 
-  console.log('shuffle list ', shuffleList)
+  //console.log('shuffle list ', shuffleList)
 
   // needs to come at the end, it seems
   setupBoard()
@@ -217,8 +217,8 @@ const checkGame = () => {
 
       if (count === 25) {
         
-        alert('you won!!!')
-
+        winner.innerHTML = "YOU WON! CONGRATS."
+        play.innerHTML = "PLAY AGAIN"
         resetGame()
 
       }
@@ -241,9 +241,27 @@ const resetGame = () => {
 
     reset.classList.add('hide')
     play.classList.remove('hide')
+    
     // put elements back in proper order if stopping mid-game
 
+    const innerSquares = document.querySelectorAll('.draggable')
 
+    for (let i = 0; i < innerSquares.length; i++) {
+
+      for (let i = 0; i < droptargets.length; i++ ) {
+
+        console.log(innerSquares[i].dataset['id'])
+        //console.log(droptargets[i].dataset.id)
+      
+        if (innerSquares[i].dataset['id'] === droptargets[i].dataset.id) {
+
+          //droptargets[i].appendChild(innerSquares[i])
+
+        }
+
+      }
+
+    }
 
 
   })

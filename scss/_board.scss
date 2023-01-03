@@ -35,6 +35,11 @@ p {
     color:black;
 }
 
+.intro-play {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
 
 .container {
     margin: 0 auto;
