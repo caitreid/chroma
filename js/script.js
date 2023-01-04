@@ -5,6 +5,9 @@ const droptargets = document.querySelectorAll(".droptarget");
 
 const winner = document.querySelector('.intro-play__winner');
 
+let attached = false;
+
+// Add Event Listeners to make sure the board is draggable 
 const setupBoard = () => {
 
   let dragged;
@@ -12,59 +15,66 @@ const setupBoard = () => {
   /* events fired on the draggable target */
   const elements = document.querySelectorAll(".draggable");
 
-  elements.forEach(element => element.addEventListener("dragstart", (event)=> {
-    // store a ref. on the dragged elem
+  if (!attached) {
 
-    dragged = event.target;
+    attached = true;
 
-    console.log('dragged ', dragged)
+    elements.forEach(element => element.addEventListener("dragstart", (event)=> {
+      // store a ref. on the dragged elem
+  
+      dragged = event.target;
+  
+      console.log('dragged ', dragged)
+  
+      // Add this element's id to the drag payload so the drop handler will
+      // know which element to add to its tree
+      event.dataTransfer.setData("text", event.target.id);
+      event.dataTransfer.effectAllowed = "move";
+  
+      // make it half transparent
+      event.target.classList.add("dragging");
+  
+    }))
+  
+  
+    elements.forEach(element => element.addEventListener("dragend", (event)=> {
+        // reset the transparency
+      event.target.classList.remove("dragging");
+    }))
+  
+  
+    droptargets.forEach(droptarget => droptarget.addEventListener("dragover", (event)=> {
+  
+      event.preventDefault();
+  
+    }, false))
+  
+  
+    droptargets.forEach(droptarget => droptarget.addEventListener("drop", (event) => {
+  
+      // prevent default action (open as link for some elements)
+      event.preventDefault();
+  
+      let newPlace = event.target.parentElement
+  
+      console.log('newPlace ', newPlace)
+  
+      // move dragged element to the selected drop target
+      if (newPlace.classList.contains("droptarget")) {
+  
+        // console.log('parent ', dragged.parentElement)
+        // event.target.classList.remove("dragover");
+        dragged.parentElement.appendChild(event.target)
+  
+        newPlace.appendChild(dragged);
+  
+      }
+      
+      checkGame()
+  
+    }))
 
-    // Add this element's id to the drag payload so the drop handler will
-    // know which element to add to its tree
-    event.dataTransfer.setData("text", event.target.id);
-    event.dataTransfer.effectAllowed = "move";
-
-    // make it half transparent
-    event.target.classList.add("dragging");
-  }))
-
-
-  elements.forEach(element => element.addEventListener("dragend", (event)=> {
-      // reset the transparency
-    event.target.classList.remove("dragging");
-  }))
-
-
-  droptargets.forEach(droptarget => droptarget.addEventListener("dragover", (event)=> {
-
-    event.preventDefault();
-
-  }, false))
-
-
-  droptargets.forEach(droptarget => droptarget.addEventListener("drop", (event) => {
-
-    // prevent default action (open as link for some elements)
-    event.preventDefault();
-
-    let newPlace = event.target.parentElement
-
-    console.log('newPlace ', newPlace)
-
-    // move dragged element to the selected drop target
-    if (newPlace.classList.contains("droptarget")) {
-
-      // console.log('parent ', dragged.parentElement)
-      // event.target.classList.remove("dragover");
-      dragged.parentElement.appendChild(event.target)
-
-      newPlace.appendChild(dragged);
-
-    }
-    
-    checkGame()
-
-  }))
+  }
 
 }
 
@@ -195,9 +205,15 @@ const checkGame = () => {
 }
 
 
-const resetGame = () => {
+const resetGame = (event) => {
 
   console.log('reset game');
+
+  /* events fired on the draggable target */
+  const elements = document.querySelectorAll(".draggable");
+
+  // elements.forEach(element => element.removeEventListener("dragstart"));
+  
 
   blocks.forEach((block, index) => {
   
@@ -208,10 +224,13 @@ const resetGame = () => {
     
     }
 
-    //block.classList.remove('draggable') 
+    block.classList.remove('draggable') 
+    block.draggable = false
 
     reset.classList.add('hide')
     play.classList.remove('hide')
+
+    
 
     // put elements back in proper order if stopping mid-game
 
