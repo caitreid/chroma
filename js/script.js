@@ -12,11 +12,8 @@ const setupBoard = () => {
   /* events fired on the draggable target */
   const elements = document.querySelectorAll(".draggable");
 
-  // give each element a listener - log that its dragging
-  // elements.forEach(element => element.addEventListener("drag", (event) => {console.log('dragggging')}))
-
   elements.forEach(element => element.addEventListener("dragstart", (event)=> {
-      // store a ref. on the dragged elem
+    // store a ref. on the dragged elem
 
     dragged = event.target;
 
@@ -36,39 +33,11 @@ const setupBoard = () => {
   }))
 
 
-
-
-
   droptargets.forEach(droptarget => droptarget.addEventListener("dragover", (event)=> {
 
     event.preventDefault();
 
   }, false))
-
-
-  // droptargets.forEach(droptarget => droptarget.addEventListener("dragenter", (event) => {
-
-  //   // console.log('event.target ', event.target)
-
-  //   if (event.target.parentElement.classList.contains("droptarget")) {
-
-  //     event.target.classList.add("dragover"); // adds pink to BG 
-      
-  //   }
-
-  // }))
-
-
-  // droptargets.forEach(droptarget => droptarget.addEventListener("dragleave", (event)=> {
-
-  //   // reset background of potential drop target when the draggable element leaves it
-  //   if (event.target.parentElement.classList.contains("droptarget")) {
-
-  //     event.target.classList.remove("dragover");
-
-  //   }
-
-  // }))
 
 
   droptargets.forEach(droptarget => droptarget.addEventListener("drop", (event) => {
@@ -133,15 +102,13 @@ const startGame = () => {
   // set up the edges of the game
   blocks.forEach((block, index) => {
 
-    // all outside points
+    // Add Black dots to all outside points
     if (index < 5 || index > 19 && index < 25 || block.classList.contains('col-1' ) || block.classList.contains('col-5')) {
       
       block.innerHTML = 
-          `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="50" cy="50" r="5" />
-          </svg>`
-
-      //block.classList.remove('draggable')
+        `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="5" />
+        </svg>`
 
     }
 
@@ -156,8 +123,7 @@ const startGame = () => {
 
   // inner game
   shuffle(newArr)
-  //console.log('shuffle ', newArr)
-
+ 
   const innerSquares = document.querySelectorAll('.draggable')
 
   innerSquares.forEach(square => { square.remove() } ) // takes them off the board
@@ -230,14 +196,11 @@ const checkGame = () => {
 }
 
 
-
-
-
 const resetGame = () => {
 
   console.log('reset game');
 
-  blocks.forEach((block, index) => {
+  blocks.forEach((block) => {
   
     block.innerHTML = ""
 
@@ -245,7 +208,7 @@ const resetGame = () => {
 
     reset.classList.add('hide')
     play.classList.remove('hide')
-    
+
     // put elements back in proper order if stopping mid-game
 
     const innerSquares = document.querySelectorAll('.draggable')
