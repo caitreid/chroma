@@ -229,6 +229,10 @@ const checkGame = () => {
 
 }
 
+
+
+
+
 const resetGame = () => {
 
   console.log('reset game');
@@ -247,23 +251,17 @@ const resetGame = () => {
     const innerSquares = document.querySelectorAll('.draggable')
 
     for (let i = 0; i < innerSquares.length; i++) {
-
-      for (let i = 0; i < droptargets.length; i++ ) {
-
-        console.log(innerSquares[i].dataset['id'])
-        //console.log(droptargets[i].dataset.id)
+  
+      for (let j = 0; j < droptargets.length; j++) {
+  
       
-        if (innerSquares[i].dataset['id'] === droptargets[i].dataset.id) {
-
-          //droptargets[i].appendChild(innerSquares[i])
-
+        if (innerSquares[i].dataset.id === droptargets[j].dataset.id ) {
+    
+          droptargets[j].appendChild(innerSquares[i])
+    
         }
-
       }
-
     }
-
-
   })
 }
 
