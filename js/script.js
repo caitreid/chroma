@@ -17,6 +17,8 @@ const setupBoard = () => {
 
     dragged = event.target;
 
+    console.log('dragged ', dragged)
+
     // Add this element's id to the drag payload so the drop handler will
     // know which element to add to its tree
     event.dataTransfer.setData("text", event.target.id);
@@ -46,6 +48,8 @@ const setupBoard = () => {
     event.preventDefault();
 
     let newPlace = event.target.parentElement
+
+    console.log('newPlace ', newPlace)
 
     // move dragged element to the selected drop target
     if (newPlace.classList.contains("droptarget")) {
@@ -83,11 +87,6 @@ function shuffle(array) {
   return array;
 }
 
-// Used like so
-// var arr = [2, 11, 37, 42];
-// shuffle(arr);
-// console.log(arr);
-
 
 const startGame = () => {
 
@@ -104,6 +103,8 @@ const startGame = () => {
 
     // Add Black dots to all outside points
     if (index < 5 || index > 19 && index < 25 || block.classList.contains('col-1' ) || block.classList.contains('col-5')) {
+
+      
       
       block.innerHTML = 
         `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -113,6 +114,8 @@ const startGame = () => {
     }
 
     else {
+
+      block.draggable = true
 
       block.classList.add('draggable')
 
@@ -156,13 +159,9 @@ const startGame = () => {
     }
   }
 
-
-  //console.log('shuffle list ', shuffleList)
-
   // needs to come at the end, it seems
   setupBoard()
   
-
 }
 
 
@@ -200,11 +199,16 @@ const resetGame = () => {
 
   console.log('reset game');
 
-  blocks.forEach((block) => {
+  blocks.forEach((block, index) => {
   
-    block.innerHTML = ""
+    // remove all black dots from outside pieces
+    if (index < 5 || index > 19 && index < 25 || block.classList.contains('col-1' ) || block.classList.contains('col-5')) {
+    
+      block.innerHTML = "" 
+    
+    }
 
-    block.classList.remove('draggable')
+    //block.classList.remove('draggable') 
 
     reset.classList.add('hide')
     play.classList.remove('hide')
