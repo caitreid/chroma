@@ -14,12 +14,21 @@
     <div class="container">
         <div class="intro">
             <h1>Chroma</h1>
-            <p>Drag and drop squares to arrange the gradient pattern correctly.</p>
+            <p>A pattern-based puzzle game.</p>
+            <audio autoplay id="yourAudio" preload='none'>
+                <source src="../files/they-feel-they-know.mp4" type='audio/mp4' />
+            </audio>
+             
+            <p class="subtext">Music by <a href="https://www.shivarasa.com/" targe="_blank"/>Shivarasa.</a></p>
+            <!-- <span id="audioControl">Pause.</span> -->
             <div class="intro-play">
-                <button class="button button-play">PLAY</button>
+                <button class="button button-play">BEGIN</button>
                 <button class="button button-reset hide">RESET</button>
                 <div class="intro-play__winner"></div>
             </div>
+        </div>
+        <div class="star-container">
+            <img class="star hide" src="./images/winner.png"/>
         </div>
         <div class="block-container">
             <div class="droptarget" data-id="1">
@@ -97,6 +106,9 @@
             <div class="droptarget" data-id="25">
                 <div class="color col-5" data-id="25" draggable="false"></div>
             </div>
+        </div>
+        <div class="footer">
+            Made in 2023 by Caitlin Reid.
         </div>
     </div>
     <script src="js/game.js"></script>

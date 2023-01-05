@@ -1,11 +1,9 @@
-// let blocks = document.querySelectorAll('.color'); // DECLARED IN color.js
-
 /* events fired on the drop targets */
 const droptargets = document.querySelectorAll(".droptarget");
 
 const winner = document.querySelector('.intro-play__winner');
 
-
+let star = document.querySelector('.star')
 
 let attached = false;
 
@@ -25,8 +23,6 @@ const setupBoard = () => {
       // store a ref. on the dragged elem
   
       dragged = event.target;
-  
-      // console.log('dragged ', dragged)
   
       // Add this element's id to the drag payload so the drop handler will
       // know which element to add to its tree
@@ -59,11 +55,11 @@ const setupBoard = () => {
   
       let newPlace = event.target.parentElement
   
-      //console.log('newPlace ', newPlace)
-  
       // move dragged element to the selected drop target
       if (newPlace.classList.contains("droptarget")) {
-  
+
+        // setTimeout(() => { event.target.classList.add('color-transition') },0);
+        
         // find the dragged element's parent and append the square it's hover above
         dragged.parentElement.appendChild(event.target)
   
@@ -80,7 +76,7 @@ const setupBoard = () => {
 
 }
 
-// Fisher–Yates shuffle
+// // Fisher–Yates shuffle
 function shuffle(array) {
   let currentIndex = array.length,  randomIndex;
 
@@ -93,12 +89,12 @@ function shuffle(array) {
 
     // And swap it with the current element.
     [array[currentIndex], array[randomIndex]] = [
-      array[randomIndex], array[currentIndex]];
+    array[randomIndex], array[currentIndex]];
   }
 
   return array;
+  
 }
-
 
 const startGame = () => {
 
@@ -106,7 +102,7 @@ const startGame = () => {
 
   reset.classList.remove('hide')
   play.classList.add('hide')
-  
+  star.classList.add('hide')
 
   let newArr = [];
 
@@ -120,8 +116,6 @@ const startGame = () => {
       `<svg class="black-dot" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
           <circle cx="50" cy="50" r="5" />
       </svg>`
-
-      
 
     }
     else {
@@ -137,12 +131,11 @@ const startGame = () => {
     let blackDots = document.querySelectorAll('.black-dot')
 
     setTimeout(() => {
-      blackDots.forEach(dot => {
-        dot.classList.add('visible')
-      }), 0
+
+      blackDots.forEach(dot => { dot.classList.add('visible') }), 0
+
     })
     
-
   })
 
   // inner game
@@ -169,8 +162,6 @@ const startGame = () => {
 
   }
 
-
-
   for (let i = 0; i < shuffleList.length; i ++) {
 
     for (let i = 0; i < innerSquares.length; i++) {
@@ -182,7 +173,6 @@ const startGame = () => {
 
   // needs to come at the end, it seems
   setupBoard()
-  
 }
 
 
@@ -193,18 +183,21 @@ const checkGame = () => {
   // let droptargets = document.querySelectorAll('.droptarget')
   let blocks = document.querySelectorAll('.color')
 
-  blocks.forEach((block, blockIndex) => {
+  blocks.forEach((block) => {
 
     // if block's id matches its parent's id
     if (block.dataset.id === block.parentElement.dataset.id) {
       
       count++
 
-
       if (count === 25) {
+
+        star.classList.remove('hide')
         
         winner.innerHTML = "YOU WON! CONGRATS."
-        play.innerHTML = "PLAY AGAIN"
+
+        play.innerHTML = "BEGIN AGAIN"
+        
         resetGame()
 
       }
@@ -217,14 +210,6 @@ const checkGame = () => {
 
 
 const resetGame = (event) => {
-
-  console.log('reset game');
-
-  /* events fired on the draggable target */
-  const elements = document.querySelectorAll(".draggable");
-
-  // elements.forEach(element => element.removeEventListener("dragstart"));
-  
 
   blocks.forEach((block, index) => {
   
@@ -240,12 +225,11 @@ const resetGame = (event) => {
 
     reset.classList.add('hide')
     play.classList.remove('hide')
-
     
 
     // put elements back in proper order if stopping mid-game
 
-    const innerSquares = document.querySelectorAll('.draggable')
+    const innerSquares = document.querySelectorAll('.draggable');
 
     for (let i = 0; i < innerSquares.length; i++) {
   
@@ -257,14 +241,18 @@ const resetGame = (event) => {
           droptargets[j].appendChild(innerSquares[i])
     
         }
+
       }
+
     }
+
   })
+
 }
 
 let play = document.querySelector('.button-play')
 
-//play.addEventListener("click", startGame);
+// play.addEventListener("click", startGame);
 
 play.addEventListener("click", () => { setTimeout(startGame, 0) })
 

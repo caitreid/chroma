@@ -369,13 +369,12 @@ body.start div h1 {
 }
 
 body {
-  /* Prevent the user selecting text in the example */
   user-select: none;
   background-color: black;
   height: 100%;
   color: white;
   font-family: "Unbounded", cursive;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 h1 {
@@ -411,23 +410,26 @@ p {
   align-items: baseline;
 }
 
+p.subtext {
+  font-size: 1rem;
+}
+
 .container {
   margin: 0 auto;
   max-width: 700px;
   width: 100%;
-  height: 100%;
-  padding-bottom: 5rem;
+  margin-bottom: 5rem;
 }
 
 .block-container {
   background-color: white;
+  min-height: 800px;
   height: 100%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
   align-content: stretch;
   justify-content: center;
-  padding-bottom: 4rem;
   background-color: black;
 }
 
@@ -438,6 +440,10 @@ p {
   align-items: center;
   justify-content: center;
   cursor: not-allowed;
+  transition-property: all, sliding;
+  transition-duration: 2s;
+}
+.color-transition {
   transition-property: all, sliding;
   transition-duration: 2s;
 }
@@ -453,9 +459,9 @@ p {
   cursor: grab;
   cursor: -moz-grab;
   cursor: -webkit-grab;
-  transition-property: transform;
-  transition-duration: 1000ms;
-  transition-timing-function: ease-in-out;
+  -webkit-transition: all 250ms;
+  -moz-transition: all 250ms;
+  transition: all 250ms;
 }
 
 .draggable:active {
@@ -465,7 +471,7 @@ p {
 }
 
 .dragging:active, .dragging::selection {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(215, 120, 212, 0.23);
+  transform: scale(1.1);
 }
 
 .dropzone {
@@ -473,11 +479,18 @@ p {
 }
 
 .dragging {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   -webkit-transition: all 100ms;
   -moz-transition: all 100ms;
   transition: all 100ms;
   transform: scale(1.1);
   opacity: 0;
+}
+
+.draggable:not(.dragging) {
+  transition-property: transform;
+  transition-duration: 1000ms;
+  transition-timing-function: ease-in-out;
 }
 
 .hide {
@@ -488,6 +501,40 @@ p {
   opacity: 1;
   transition-property: opacity;
   transition-duration: 1s;
+}
+
+@keyframes winnerAnimation {
+  from {
+    transform: rotate(0deg);
+    scale: 0.33;
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.star-container {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 700px;
+  padding: 5rem 0;
+}
+.star-container img {
+  max-width: 90%;
+  animation: winnerAnimation 2s;
+  z-index: 100;
+}
+
+.footer {
+  display: block;
+  padding: 4rem 0;
+}
+
+a {
+  color: white;
+  text-decoration: underline;
+  text-underline-offset: 5px;
 }
 
 /*# sourceMappingURL=style.css.map */
