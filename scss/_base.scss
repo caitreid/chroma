@@ -1,0 +1,34 @@
+body {
+    background-color: black;
+    height: 100%;
+    color:white;
+    font-family: 'Unbounded', Arial;
+    padding: 1rem;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+p {
+    font-size: 2rem;
+}
+
+.button {
+    color:white;
+    background-color: black;
+    font-family: 'Unbounded', Arial;
+    padding:1rem;
+    margin: 2rem 0;
+    border: 1px solid white;
+}
+
+.button:hover {
+    cursor: pointer;
+    background-color: rgb(255, 23, 170);
+}
+
+.button-reset:hover {
+    background-color: white;
+    color:black;
+}

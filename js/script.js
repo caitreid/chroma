@@ -1,5 +1,5 @@
 /* events fired on the drop targets */
-const droptargets = document.querySelectorAll(".droptarget");
+const droptargets = document.querySelectorAll(".puzzle__drop-target");
 
 const winner = document.querySelector('.intro-play__winner');
 
@@ -58,7 +58,7 @@ const setupBoard = () => {
       let newPlace = event.target.parentElement
   
       // move dragged element to the selected drop target
-      if (newPlace.classList.contains("droptarget")) {
+      if (newPlace.classList.contains("puzzle__drop-target")) {
 
         // setTimeout(() => { event.target.classList.add('color-transition') },0);
         
