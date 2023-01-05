@@ -331,12 +331,10 @@ p {
   margin: 2rem 0;
   border: 1px solid white;
 }
-
 .button:hover {
   cursor: pointer;
   background-color: rgb(255, 23, 170);
 }
-
 .button-reset:hover {
   background-color: white;
   color: black;
@@ -460,6 +458,9 @@ p.subtext {
   -webkit-transition: all 250ms;
   -moz-transition: all 250ms;
   transition: all 250ms;
+}
+.draggable:hover {
+  cursor: grab;
 }
 
 .draggable:active {

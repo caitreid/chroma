@@ -15,20 +15,25 @@ p {
 }
 
 .button {
+    
     color:white;
     background-color: black;
     font-family: 'Unbounded', Arial;
     padding:1rem;
     margin: 2rem 0;
     border: 1px solid white;
+
+    &:hover {
+        cursor: pointer;
+        background-color: rgb(255, 23, 170);
+    }
+
+    &-reset:hover {
+        background-color: white;
+        color:black;
+    }
 }
 
-.button:hover {
-    cursor: pointer;
-    background-color: rgb(255, 23, 170);
-}
 
-.button-reset:hover {
-    background-color: white;
-    color:black;
-}
+
+

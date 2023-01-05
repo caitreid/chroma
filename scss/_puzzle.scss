@@ -25,6 +25,7 @@
             transition-property: all, sliding;
             transition-duration: 2s;   
         }
+        
     }
 }
 
@@ -66,6 +67,9 @@ p.subtext {
     -webkit-transition: all 250ms;
     -moz-transition: all 250ms;
     transition: all 250ms;
+    &:hover{
+        cursor: grab;
+    }
 }
 
 .draggable:active {
