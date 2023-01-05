@@ -113,7 +113,7 @@ const startGame = () => {
   blocks.forEach((block, index) => {
 
     // Add Black dots to all outside points
-    if (index < 5 || index > 19 && index < 25 || block.classList.contains('col-1' ) || block.classList.contains('col-5')) {
+    if (index < 5 || index > 19 && index < 25 || block.classList.contains('puzzle--col-1' ) || block.classList.contains('puzzle--col-5')) {
 
       block.innerHTML = 
       `<svg class="black-dot" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -184,7 +184,7 @@ const checkGame = () => {
   let count = 0;
 
   // let droptargets = document.querySelectorAll('.droptarget')
-  let blocks = document.querySelectorAll('.color')
+  let blocks = document.querySelectorAll('.puzzle__piece')
 
   blocks.forEach((block) => {
 
@@ -217,7 +217,7 @@ const resetGame = (event) => {
   blocks.forEach((block, index) => {
   
     // remove all black dots from outside pieces
-    if (index < 5 || index > 19 && index < 25 || block.classList.contains('col-1' ) || block.classList.contains('col-5')) {
+    if (index < 5 || index > 19 && index < 25 || block.classList.contains('puzzle--col-1' ) || block.classList.contains('puzzle--col-5')) {
     
       block.innerHTML = "" 
     

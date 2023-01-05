@@ -15,7 +15,7 @@ let colorValues = {
 
 
 
-let blocks = document.querySelectorAll('.color');
+let blocks = document.querySelectorAll('.puzzle__piece');
 
 
 blocks.forEach((block, index) => {
@@ -73,7 +73,7 @@ blocks.forEach((block, index) => {
 
 })
 
-const col1 = document.querySelectorAll('.col-1')
+const col1 = document.querySelectorAll('.puzzle--col-1')
     
 // pointOne to pointThree
 col1.forEach((block, index) => {
@@ -101,7 +101,7 @@ col1.forEach((block, index) => {
 // console.log(colorValues[2])
 
 // pointTwo to PointFour
-const col5 = document.querySelectorAll('.col-5')
+const col5 = document.querySelectorAll('.puzzle--col-5')
 
 col5.forEach((block, index) => {
 
@@ -124,7 +124,7 @@ col5.forEach((block, index) => {
 
 })
 
-const col2 = document.querySelectorAll('.col-2')
+const col2 = document.querySelectorAll('.puzzle--col-2')
 
 
 
@@ -158,7 +158,7 @@ col2.forEach((block, index) => {
 
 // console.log('colorValues: ', colorValues)
 
-const col3 = document.querySelectorAll('.col-3')
+const col3 = document.querySelectorAll('.puzzle--col-3')
 
 col3.forEach((block, index) => {
 
@@ -189,7 +189,7 @@ col3.forEach((block, index) => {
 
 })
 
-const col4 = document.querySelectorAll('.col-4')
+const col4 = document.querySelectorAll('.puzzle--col-4')
 
 col4.forEach((block, index) => {
 

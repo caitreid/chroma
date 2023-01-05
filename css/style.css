@@ -414,6 +414,20 @@ body.start div h1 {
   justify-content: center;
   background-color: black;
 }
+.puzzle .puzzle__piece {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: not-allowed;
+  transition-property: all, sliding;
+  transition-duration: 2s;
+}
+.puzzle .puzzle__piece.color-transition {
+  transition-property: all, sliding;
+  transition-duration: 2s;
+}
 
 .intro-play {
   display: flex;
@@ -430,21 +444,6 @@ p.subtext {
   max-width: 700px;
   width: 100%;
   margin-bottom: 5rem;
-}
-
-.color {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: not-allowed;
-  transition-property: all, sliding;
-  transition-duration: 2s;
-}
-.color-transition {
-  transition-property: all, sliding;
-  transition-duration: 2s;
 }
 
 .black-dot {
