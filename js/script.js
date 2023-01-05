@@ -5,6 +5,8 @@ const droptargets = document.querySelectorAll(".droptarget");
 
 const winner = document.querySelector('.intro-play__winner');
 
+
+
 let attached = false;
 
 // Add Event Listeners to make sure the board is draggable 
@@ -24,7 +26,7 @@ const setupBoard = () => {
   
       dragged = event.target;
   
-      console.log('dragged ', dragged)
+      // console.log('dragged ', dragged)
   
       // Add this element's id to the drag payload so the drop handler will
       // know which element to add to its tree
@@ -57,15 +59,15 @@ const setupBoard = () => {
   
       let newPlace = event.target.parentElement
   
-      console.log('newPlace ', newPlace)
+      //console.log('newPlace ', newPlace)
   
       // move dragged element to the selected drop target
       if (newPlace.classList.contains("droptarget")) {
   
-        // console.log('parent ', dragged.parentElement)
-        // event.target.classList.remove("dragover");
+        // find the dragged element's parent and append the square it's hover above
         dragged.parentElement.appendChild(event.target)
   
+        // append dragged element to the new drop target
         newPlace.appendChild(dragged);
   
       }
@@ -114,15 +116,14 @@ const startGame = () => {
     // Add Black dots to all outside points
     if (index < 5 || index > 19 && index < 25 || block.classList.contains('col-1' ) || block.classList.contains('col-5')) {
 
-      
-      
       block.innerHTML = 
-        `<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="5" />
-        </svg>`
+      `<svg class="black-dot" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50" cy="50" r="5" />
+      </svg>`
+
+      
 
     }
-
     else {
 
       block.draggable = true
@@ -132,6 +133,16 @@ const startGame = () => {
       newArr.push(block.dataset.id)
       
     }
+
+    let blackDots = document.querySelectorAll('.black-dot')
+
+    setTimeout(() => {
+      blackDots.forEach(dot => {
+        dot.classList.add('visible')
+      }), 0
+    })
+    
+
   })
 
   // inner game
@@ -253,7 +264,9 @@ const resetGame = (event) => {
 
 let play = document.querySelector('.button-play')
 
-play.addEventListener("click", startGame);
+//play.addEventListener("click", startGame);
+
+play.addEventListener("click", () => { setTimeout(startGame, 0) })
 
 let reset = document.querySelector('.button-reset')
 

@@ -228,3 +228,8 @@ col4.forEach((block, index) => {
 
 
 
+//------------------
+
+// write a function that tracks every initial position of each div
+// it then calculates the final position of that div based on the randomized array
+// then it dynamically creates key frames for each div to slowly change from its inital position to the final position

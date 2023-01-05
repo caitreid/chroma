@@ -68,6 +68,14 @@ p {
     align-items: center;
     justify-content: center;
     cursor: not-allowed;
+    // opacity: 1;
+    transition-property: all, sliding;
+    transition-duration: 2s;
+    // opacity: .5;
+}
+
+.black-dot {
+    opacity: 0;
 }
   
 .draggable {
@@ -78,6 +86,9 @@ p {
     cursor: -moz-grab;
     cursor: -webkit-grab;
 
+    transition-property:transform;
+    transition-duration: 1000ms;
+    transition-timing-function:ease-in-out;
 }
 .draggable:active {
     cursor: grabbing;
@@ -87,26 +98,42 @@ p {
 }
 
 .dragging:active, .dragging::selection{
-    cursor: grab;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(215, 120, 212, 0.23);
+//   -webkit-transform: translateY(-2px);
+//   -moz-transform: translateY(-2px);
 
 }
 
 .dropzone {
-    // cursor: grab;
     // background: blueviolet;
     // padding: 10px;
     border: 1px black solid;
 }
 
-.dragover {
-    // cursor: grab;
-}
+// .dragover {
+
+// }
 
 .dragging {
     // opacity: 0.25; // do i want to keep this ?
-    cursor: grab;
-
+    //cursor: grab;
+  -webkit-transition: all 100ms;
+  -moz-transition: all 100ms;
+  transition: all 100ms;
+   transform: scale(1.1);
+  opacity: 0;
 }
+
+// .color:not(.dragging) {
+//     transition-property:transform;
+//     transition-duration: 1000ms;
+//     transition-timing-function:ease-in-out;
+// }
 .hide {
     display:none;
+}
+.visible {
+    opacity: 1;
+    transition-property: opacity;
+    transition-duration: 1s;
 }

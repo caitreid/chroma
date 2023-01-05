@@ -438,6 +438,12 @@ p {
   align-items: center;
   justify-content: center;
   cursor: not-allowed;
+  transition-property: all, sliding;
+  transition-duration: 2s;
+}
+
+.black-dot {
+  opacity: 0;
 }
 
 .draggable {
@@ -447,6 +453,9 @@ p {
   cursor: grab;
   cursor: -moz-grab;
   cursor: -webkit-grab;
+  transition-property: transform;
+  transition-duration: 1000ms;
+  transition-timing-function: ease-in-out;
 }
 
 .draggable:active {
@@ -456,7 +465,7 @@ p {
 }
 
 .dragging:active, .dragging::selection {
-  cursor: grab;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(215, 120, 212, 0.23);
 }
 
 .dropzone {
@@ -464,11 +473,21 @@ p {
 }
 
 .dragging {
-  cursor: grab;
+  -webkit-transition: all 100ms;
+  -moz-transition: all 100ms;
+  transition: all 100ms;
+  transform: scale(1.1);
+  opacity: 0;
 }
 
 .hide {
   display: none;
+}
+
+.visible {
+  opacity: 1;
+  transition-property: opacity;
+  transition-duration: 1s;
 }
 
 /*# sourceMappingURL=style.css.map */
