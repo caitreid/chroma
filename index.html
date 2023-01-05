@@ -23,16 +23,19 @@
             </audio>
              
             <p class="subtext">Music by <a href="https://www.shivarasa.com/" target="_blank"/>Shivarasa.</a></p>
-            <!-- <span id="audioControl">Pause.</span> -->
+
+            <!-- <span id="audioControl">Pause.</span>  I think i need to put this back in as a pause button.-->
 
             <div class="intro-play">
-                <button class="button button-play">BEGIN</button>
-                <button class="button button-reset hide">RESET</button>
+                <button class="button button--play">BEGIN</button>
+                <!-- arrow indicator here -->
+                <button class="button button--reset button--hide">RESET</button>
                 <div class="intro-play__winner"></div>
             </div>
         </div>
-        <div class="star-container">
-            <img class="star hide" src="./images/winner.png"/>
+
+        <div class="star star__container">
+            <img class="star__image star--hide" src="./images/winner.png"/>
         </div>
         <div class="puzzle puzzle__container">
             <div class="puzzle__drop-target" data-id="1">
@@ -111,9 +114,11 @@
                 <div class="puzzle__piece" data-column="5" data-id="25" draggable="false"></div>
             </div>
         </div>
-        <div class="footer">
-            Made in 2023 by Caitlin Reid.
-        </div>
+        <footer>
+            <div class="footer">
+                Made in 2023 by Caitlin Reid.
+            </div>
+        </footer>
     </div>
 	<script src="js/script.js"></script>
     <script src="js/color.js"></script>
