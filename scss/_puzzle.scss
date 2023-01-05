@@ -102,10 +102,7 @@ p.subtext {
     transition-timing-function:ease-in-out;
 }
 
-// this is for the play / reset buttons
-.hide {
-    display:none;
-}
+
 
 // this is for the black dots specifically
 .visible {
@@ -115,6 +112,7 @@ p.subtext {
 }
 
 @keyframes winnerAnimation {
+
     from {
         transform: rotate(0deg);
         scale: .33;
@@ -124,29 +122,29 @@ p.subtext {
     }
 }
 
-.star-container {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 700px;
-    padding: 5rem 0;
-    img {
+.star {
+
+    &.star__container {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 700px;
+        padding: 5rem 0;
+    }
+
+    &__image {
         max-width: 90%;
         animation: winnerAnimation 2s;
-        // display: block;
-        z-index: 100;
+        z-index: 100;       
+    }
+
+    &--hide {
+        display:none;
     }
 }
 
-.footer {
-    display: block;
-    padding: 4rem 0;
-}
 
 
-a {
-    color:white;
-    text-decoration: underline;
-    text-underline-offset: 5px;
-}
+
+
