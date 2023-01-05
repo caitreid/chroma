@@ -373,7 +373,7 @@ body {
   background-color: black;
   height: 100%;
   color: white;
-  font-family: "Unbounded", cursive;
+  font-family: "Unbounded", Arial;
   padding: 1rem;
 }
 
@@ -388,7 +388,7 @@ p {
 .button {
   color: white;
   background-color: black;
-  font-family: "Unbounded", cursive;
+  font-family: "Unbounded", Arial;
   padding: 1rem;
   margin: 2rem 0;
   border: 1px solid white;
