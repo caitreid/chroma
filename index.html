@@ -8,19 +8,23 @@
     <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
     <link rel="stylesheet" href="css/style.css">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@200;300;400;500;700;800&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="container">
         <div class="intro">
             <h1>Chroma</h1>
             <p>A pattern-based puzzle game.</p>
+
             <audio autoplay loop id="audio">
                 <source src="./files/they-feel-they-know.mp4" type='audio/mp4' />
             </audio>
              
             <p class="subtext">Music by <a href="https://www.shivarasa.com/" target="_blank"/>Shivarasa.</a></p>
             <!-- <span id="audioControl">Pause.</span> -->
+
             <div class="intro-play">
                 <button class="button button-play">BEGIN</button>
                 <button class="button button-reset hide">RESET</button>
@@ -30,7 +34,7 @@
         <div class="star-container">
             <img class="star hide" src="./images/winner.png"/>
         </div>
-        <div class="block-container">
+        <div class="puzzle puzzle__container">
             <div class="droptarget" data-id="1">
                 <div class="color col-1" data-id="1" draggable="false"></div>
             </div>

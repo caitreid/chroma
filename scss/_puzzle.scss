@@ -7,6 +7,20 @@ body {
     padding: 1rem;
 }
 
+.puzzle {
+    &.puzzle__container {
+        background-color: white;
+        min-height: 800px;
+        height:100%;
+        display:grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        align-content: stretch;
+        justify-content: center;
+        background-color: black;
+    }
+}
+
 h1 {
     font-size: 4rem;
 }
@@ -51,17 +65,7 @@ p.subtext {
     margin-bottom: 5rem;
 }
 
-.block-container {
-    background-color: white;
-    min-height: 800px;
-    height:100%;
-    display:grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    align-content: stretch;
-    justify-content: center;
-    background-color: black;
-}
+
 .color {
     height: 100%;
     width: 100%;
