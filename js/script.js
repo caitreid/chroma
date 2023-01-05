@@ -10,6 +10,8 @@ let attached = false;
 // Add Event Listeners to make sure the board is draggable 
 const setupBoard = () => {
 
+  winner.innerHTML = "" // remove any old winner announcements
+
   let dragged;
 
   /* events fired on the draggable target */
