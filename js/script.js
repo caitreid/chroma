@@ -103,6 +103,7 @@ const startGame = () => {
   reset.classList.remove('hide')
   play.classList.add('hide')
   star.classList.add('hide')
+  audio.play()
 
   let newArr = [];
 

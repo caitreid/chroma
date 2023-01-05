@@ -1,4 +1,4 @@
-var yourAudio = document.getElementById('yourAudio'),
+var audio = document.getElementById('audio'),
 control = document.getElementById('audioControl');
 
 let audioControl =() => {
@@ -9,7 +9,7 @@ let audioControl =() => {
 
     // Update the Audio
     var method = play ? 'play' : 'pause';
-    yourAudio[method]();
+    audio[method]();
 
     // Prevent Default Action
     return false;
