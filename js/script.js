@@ -3,7 +3,7 @@ const droptargets = document.querySelectorAll(".puzzle__drop-target");
 
 const winner = document.querySelector('.intro-play__winner');
 
-let star = document.querySelector('.star')
+let star = document.querySelector('.star__image')
 
 let attached = false;
 
@@ -102,9 +102,9 @@ const startGame = () => {
 
   console.log('start game')
 
-  reset.classList.remove('hide')
-  play.classList.add('hide')
-  star.classList.add('hide')
+  reset.classList.remove('button--hide')
+  play.classList.add('button--hide')
+  star.classList.add('star--hide')
   audio.play()
 
   let newArr = [];
@@ -195,7 +195,7 @@ const checkGame = () => {
 
       if (count === 25) {
 
-        star.classList.remove('hide')
+        star.classList.remove('star--hide')
         
         winner.innerHTML = "YOU WON! CONGRATS."
 
@@ -226,8 +226,8 @@ const resetGame = (event) => {
     block.classList.remove('draggable') 
     block.draggable = false
 
-    reset.classList.add('hide')
-    play.classList.remove('hide')
+    reset.classList.add('button--hide')
+    play.classList.remove('button--hide')
     
 
     // put elements back in proper order if stopping mid-game
@@ -253,13 +253,13 @@ const resetGame = (event) => {
 
 }
 
-let play = document.querySelector('.button-play')
+let play = document.querySelector('.button--play')
 
 // play.addEventListener("click", startGame);
 
 play.addEventListener("click", () => { setTimeout(startGame, 0) })
 
-let reset = document.querySelector('.button-reset')
+let reset = document.querySelector('.button--reset')
 
 reset.addEventListener("click", resetGame)
 
