@@ -12,7 +12,7 @@ Table of Contents
 
 ## Goals
 
-Chroma is a pattern-based puzzle largely inspired by the iOS game, I Love Hue. My goal was to create an aesthetically pleasing app with a javascript-generated 4-pointed gradient, adding a meditative atmosphere to relax and entertain the user. In its current form, it is a web-based experience designed for desktop.
+Chroma is a pattern-based puzzle game inspired by the iOS app, I Love Hue. My goal was to create an aesthetically pleasing web experience with a javascript-generated 4-pointed gradient, adding a meditative atmosphere to relax and entertain the user. In its current form, it is designed for desktop.
 
 ### User Stories
 
@@ -36,10 +36,21 @@ This web application was built with:
 
 ## Approach
 
+In this README I will describe the puzzle's functionality as expressed in HTML, Javascript and SCSS. 
+
 ### HTML + BEM 
 
 The first part of the game I created was the game board. I began with a container surrounding each of the 25 dynamically colored squares.
-I made a point to specifically use BEM Conventions when creating this complicated but essential architecture. It's what has drove the organization of subsequent style and script files.
+I made a point to specifically use BEM Conventions when creating this complicated but essential architecture. It's what has drove the organization of subsequent styling and script files. 
+
+
+
+To begin, I used CSS Grid to arrange 25 divs inside a single container. The Drag and Drop API is designed such that for every **draggable element** there is a designated **drop target**. So Inside every square element, I added another div to serve as the actual puzzle "piece" that was swapped between locations.
+
+
+<img src="./images/diagram_1.png" /><br><br>
+
+Translated to code:
 
 ```html
 <div class="puzzle puzzle__container">
@@ -52,13 +63,12 @@ I made a point to specifically use BEM Conventions when creating this complicate
 <br>
 
 
+
 Using HTML5's [Drag and Drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API), I needed to create not only the squares serving as puzzle pieces but also targets that serve as the container for which any a piece could be dropped into. 
 
-As you can see, `puzzle__target` div surrounds each `puzzle__piece` div.
+Next I gave each piece a `data-id` incrementing upwards by 1. This is important because when we check for the accuracy of the game, we look to see if the interior puzzle piece's ID matches the target. I also gave each piece a `data-column` to easily target the element in `color.js` where I dynamically add color to each piece on the board.
 
-Next I gave each piece a `data-id` incrementing upwards by 1. This is important because when we check for the accuracy of the game, we look to see if the interior puzzle piece's ID matches the target.
-
-Finally I will note that I were to re-factor and scale this project, I wouldn't start out with hard-coded HTML, but dynamically generate each board, each gradient, and each color problem set. However this is a good starting point before evolving to something more dynamic.
+A final note on the HTML: I began this project with hardcoded HTML elements, however if I were to refactor this project, I would consider dynamically generating each element in javascript to easily update the number of pieces and orientation programmatically. However this is certainly a good starting point before developing something more dynamic.
 
 
 
