@@ -1,28 +1,40 @@
-# CHROMA | A pattern-based puzzle.
+<img src="./images/opening.png" /><br><br><br>
 
 
-## README REQs
+# CHROMA 
 
-Technologies used
-Approach taken
-Installation instructions
-Unsolved problems, etc.
+Table of Contents
+* <a href="#Goals">Goals</a>
+* <a href="#Technologies">Technologies</a>
+* <a href="#Approach">Approach</a>
+* <a href="#Commands">Commands</a>
 
 
-## User Stories
+## Goals
 
 A User will be able to...
-- Generate a unique puzzle with randomly generated colored squares using CSS Canvas
-- Initiate a scrambled puzzle with black dot "anchors" indicating which squares are not to be shuffled
+- Generate a unique puzzle 
+- Initiate the puzzle's scramble with black dot "anchors" indicating which piece are permanently fixed on the board
 - Click and drag a piece to be swapped with another square
 - Play until the puzzle has been solved
 - When the game is over, be alerted with how many moves they made 
 - When the game is over, give the option to restart the game and play again with a new challenge
-- Listen to meditative music while playing the game (as per the original)
+- Listen to meditative music while playing the game to give an introspective atmosphere
+
+## Technologies
+
+This application was built with: 
+* HTML5
+* Drag and Drop API
+* SCSS
+* Vanilla Javscript
 
 
+Approach taken
+Installation instructions
+Unsolved problems, etc.
 
-# Approach
+## Approach
 
 ## HTML
 ### BEM Convention
@@ -175,6 +187,8 @@ At this point I no longer need to add the generated color values to the colorVal
 - https://codepen.io/caitlinreid1/pen/ExpjeRY
 
 ## Commands
+
+Handy Commands
 
 `sass --watch scss/style.scss:css/style.css`
 
