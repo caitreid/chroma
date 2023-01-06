@@ -12,13 +12,16 @@ Table of Contents
 
 ## Goals
 
+The ambition of this game is to create a puzzle which dynamically generates a 4-pointed gradient each round. 
+
+### User Stories
+
 A User will be able to...
 - Generate a unique puzzle 
 - Initiate the puzzle's scramble with black dot "anchors" indicating which piece are permanently fixed on the board
 - Click and drag a piece to be swapped with another square
 - Play until the puzzle has been solved
-- When the game is over, be alerted with how many moves they made 
-- When the game is over, give the option to restart the game and play again with a new challenge
+- When the game is over, give the option to restart the game and play again
 - Listen to meditative music while playing the game to give an introspective atmosphere
 
 ## Technologies
@@ -56,17 +59,15 @@ Using HTML5's [Drag and Drop API](https://developer.mozilla.org/en-US/docs/Web/A
 
 As you can see, `puzzle__target` div surrounds each `puzzle__piece` div.
 
-Next I gave each piece a data ID incrementing upwards by 1. This is important because when we check for the accuracy of the game, we look to see if the interior puzzle piece's ID matches the target/container.
+Next I gave each piece a `data-id` incrementing upwards by 1. This is important because when we check for the accuracy of the game, we look to see if the interior puzzle piece's ID matches the target.
 
 Finally I will note that I were to re-factor and scale this project, I wouldn't start out with hard-coded HTML, but dynamically generate each board, each gradient, and each color problem set. However this is a good starting point before evolving to something more dynamic.
 
 
 
 ## Javascript
-### Color.js
-
-
-I was intentional about doing calculations for the board instead of hardcoding them because I wanted to leave open the possibility for changing the 4 colors with each game round, creating new challenges and color combinations. For V1, I've left it at four points, with the door open to create new levels.
+### Color.js | Dynamically generate color values
+My plan was to dynamically generate color values on the board instead of hardcoding them in SCSS. This is because I wanted to leave open the possibility for changing the pattern with each subsequent game round, creating new challenges and color combinations. 
 
 First thing I did was define each of the four points
 
