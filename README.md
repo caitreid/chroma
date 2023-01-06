@@ -62,7 +62,7 @@ Translated to code:
 
  
 
-After creating all of the necessary elements, I gave each `puzzle__piece` a `data-id`, starting with 1 and incrementing upwards1. This is important because when we check for the accuracy of the game, we look to see if the interior puzzle piece's ID matches the target. I also gave each piece a `data-column` to easily target the element in `color.js` where I dynamically add color to each piece on the board.
+After creating all of the necessary elements, I gave each `puzzle__piece` a `data-id`, starting with 1 and incrementing upwards. This is important because when we check for the accuracy of the game, we look to see if the interior puzzle piece's ID matches the target. I also gave each piece a `data-column` to easily target the element of a certain column in `color.js` where I dynamically add color to each piece on the board.
 
 A final note on the HTML: I began this project with hardcoded HTML elements, but if I were to refactor this project, I would consider dynamically generating each element in javascript to easily update the number of pieces and orientation as needed, rather than updating the DOM with what already exists. However this is certainly a good starting point before developing something more dynamic.
 
@@ -70,9 +70,18 @@ A final note on the HTML: I began this project with hardcoded HTML elements, but
 
 ## Javascript
 
-### Color.js | Dynamically generate color values
+### Board.js | setupBoard()
 
-After laying out all of the 25 `puzzle__pieces` and their surrounding `puzzle__target`, the next step I took was to create the 4-pointed color gradient.
+After laying out all of the 25 `puzzle__pieces` and their surrounding `puzzle__target`, the next step I took was to create the most important functionality of the game, drag and drop. Leveraging HTML's drag and drop capability, I targeted blocks on the board and configured event listeners to update the DOM accordingly when pieces were moved.
+
+
+
+
+
+
+### Color.js | Dynamically generated color values
+
+ create the 4-pointed color gradient.
 
 I knew that I would want to generate this is javascript rather than hardcoding the SCSS elements for a few reasons. 
 
