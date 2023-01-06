@@ -24,7 +24,7 @@ A User will be able to...
 - When the game is over, give the option to restart the game and play again
 - Listen to meditative music while playing the game to give an introspective atmosphere
 
-## Technologies
+### Technologies
 
 This web application was built with: 
 
@@ -36,16 +36,14 @@ This web application was built with:
 
 ## Approach
 
-In this README I will describe the puzzle's functionality as expressed in HTML, Javascript and SCSS. 
+In this README I will describe the puzzle's functionality as expressed in HTML, Javascript and SCSS. Specifically I will discuss the creation of the puzzle board, its drag and drop functionality, as well as the the dynamically generated 4-pointed color gradient. 
 
 ### HTML + BEM 
 
-The first part of the game I created was the game board. I began with a container surrounding each of the 25 dynamically colored squares.
-I made a point to specifically use BEM Conventions when creating this complicated but essential architecture. It's what has drove the organization of subsequent styling and script files. 
+The first part of the project I created was the game board. 
+I made a point to specifically use BEM Conventions when creating this complicated but essential architecture. It's what has drove the organization of subsequent styling and javascript files. 
 
-
-
-To begin, I used CSS Grid to arrange 25 divs inside a single container. The Drag and Drop API is designed such that for every **draggable element** there is a designated **drop target**. So Inside every square element, I added another div to serve as the actual puzzle "piece" that was swapped between locations.
+To begin, I used CSS Grid to arrange 25 divs inside a single container. The Drag and Drop API is designed such that for every **draggable element** there is a designated **drop target**. So inside every square element, I added another div to serve as the actual puzzle "piece" that was swapped between locations.
 
 
 <img src="./images/diagram_1.png" /><br><br>
@@ -62,18 +60,22 @@ Translated to code:
 ``` 
 <br>
 
+ 
 
+After creating all of the necessary elements, I gave each `puzzle__piece` a `data-id`, starting with 1 and incrementing upwards1. This is important because when we check for the accuracy of the game, we look to see if the interior puzzle piece's ID matches the target. I also gave each piece a `data-column` to easily target the element in `color.js` where I dynamically add color to each piece on the board.
 
-Using HTML5's [Drag and Drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API), I needed to create not only the squares serving as puzzle pieces but also targets that serve as the container for which any a piece could be dropped into. 
-
-Next I gave each piece a `data-id` incrementing upwards by 1. This is important because when we check for the accuracy of the game, we look to see if the interior puzzle piece's ID matches the target. I also gave each piece a `data-column` to easily target the element in `color.js` where I dynamically add color to each piece on the board.
-
-A final note on the HTML: I began this project with hardcoded HTML elements, however if I were to refactor this project, I would consider dynamically generating each element in javascript to easily update the number of pieces and orientation programmatically. However this is certainly a good starting point before developing something more dynamic.
+A final note on the HTML: I began this project with hardcoded HTML elements, but if I were to refactor this project, I would consider dynamically generating each element in javascript to easily update the number of pieces and orientation as needed, rather than updating the DOM with what already exists. However this is certainly a good starting point before developing something more dynamic.
 
 
 
 ## Javascript
+
 ### Color.js | Dynamically generate color values
+
+After laying out all of the 25 `puzzle__pieces` and their surrounding `puzzle__target`, the next step I took was to create the 4-pointed color gradient.
+
+I knew that I would want to generate this is javascript rather than hardcoding the SCSS elements for a few reasons. 
+
 My plan was to dynamically generate color values on the board instead of hardcoding them in SCSS. This is because I wanted to leave open the possibility for changing the pattern with each subsequent game round, creating new challenges and color combinations. 
 
 First thing I did was define each of the four points
