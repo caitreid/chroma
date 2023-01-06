@@ -1,4 +1,4 @@
-<img src="./images/opening.png" /><br><br><br>
+<img src="./images/opening.png" style="max-width:500px" /><br><br><br>
 
 
 # CHROMA 
@@ -36,35 +36,29 @@ Unsolved problems, etc.
 
 ## Approach
 
-## HTML
-### BEM Convention
+### HTML + BEM 
 
+The first part of the game I created was the game board. I began with a container surrounding each of the 25 dynamically colored squares.
+I made a point to specifically use BEM Conventions when creating this complicated but essential architecture. It's what has drove the organization of subsequent style and script files.
 
-```
+```html
 <div class="puzzle puzzle__container">
-           <div class="puzzle__target" data-id="1">
-               <div class="puzzle__piece" data-column="1" data-id="1" draggable="false"></div>
-           </div>
-           <div class="puzzle__target" data-id="2">
-               <div class="puzzle__piece" data-column="2" data-id="2" draggable="false"></div>
-           </div>
-           <div class="puzzle__target" data-id="3">
-               <div class="puzzle__piece" data-column="3" data-id="3" draggable="false"></div>
-           </div>
-```
-
-The first part of the game I created was the game board. There's a `puzzle__container` surrounding each of the 25 dynamically colored squares.
-
-Using HTML5's [Drag and Drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API), I needed to create not only the squares serving as puzzle pieces but also targets that serve as the container for which any a piece could be dropped into. As you can see, `puzzle__target` div surrounds each `puzzle__piece` div.
-
-It's also important to note that I gave each piece a data ID incrementing upwards by 1. This is important because when we check for the accuracy of the game, we look to see if the interior puzzle piece's ID matches the target/container.
-
-Additionally I added `data-column` to distinguish which pieces were in which column as I dynamically generated the gradient in `color.js`. I will say that if I were to re-factor and scale this project, I wouldn't start out with hard-coded HTML, but dynamically generate each board, each gradient, and each color problem set. However this is a good starting point before evolving to something more dynamic, and hopefully demonstrates well to an outside observer.
+    <div class="puzzle__target" data-id="1">
+        <div class="puzzle__piece" data-column="1" data-id="1" draggable="false"></div>
+    </div>
+    ...
+</div>
+``` 
+<br>
 
 
-### Begin
+Using HTML5's [Drag and Drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API), I needed to create not only the squares serving as puzzle pieces but also targets that serve as the container for which any a piece could be dropped into. 
 
-The user is instructed to begin the game with the begin button. This initiated the board scramble and begins playing meditative music by Shivarasa.
+As you can see, `puzzle__target` div surrounds each `puzzle__piece` div.
+
+Next I gave each piece a data ID incrementing upwards by 1. This is important because when we check for the accuracy of the game, we look to see if the interior puzzle piece's ID matches the target/container.
+
+Finally I will note that I were to re-factor and scale this project, I wouldn't start out with hard-coded HTML, but dynamically generate each board, each gradient, and each color problem set. However this is a good starting point before evolving to something more dynamic.
 
 
 
@@ -76,7 +70,7 @@ I was intentional about doing calculations for the board instead of hardcoding t
 
 First thing I did was define each of the four points
 
-```
+```javascript
 let pointOne = [143, 201, 200] // Light Blue
 let pointTwo = [243, 229, 118] // Yellow
 let pointThree = [23, 54, 211] // Dark Blue
@@ -87,7 +81,7 @@ These are the RGB values of each corner I wanted to create on the board. I've co
 
 Next I decided to create an object that stored the values of each generated color:
 
-```
+```javascript
 let colorValues = {
    0: [pointOne, [], [], [], pointTwo],
    1: [[], [], [], [], []],
@@ -105,7 +99,7 @@ However I created this data structure to keep track of the values that were gene
 
 ### Point One to Point Two 
 
-```
+```javascript
 let blocks = document.querySelectorAll('.puzzle__piece');
 
 
@@ -126,9 +120,6 @@ blocks.forEach((block, index) => {
        colorValues[0][index][1] = varG
        colorValues[0][index][2] = varB
 
-       // console.log('index of ', index, colorValues[0][index])
-
-       //console.log(generateColor)
        block.style.backgroundColor = generateColor
    }
 
@@ -147,18 +138,18 @@ I created four values `varR`, `varG` and varB` -- and then I set up my calculati
 
 Then I made sure to add the calculated values into my `colorValues object`
 
-```
-colorValues[0][index][0] = varR
-       colorValues[0][index][1] = varG
-       colorValues[0][index][2] = varB
+```javascript
+    colorValues[0][index][0] = varR
+    colorValues[0][index][1] = varG
+    colorValues[0][index][2] = varB
 ```
 
 then I took the generated value and added it to the block at the particular index of my row.
 
-```
-       const generateColor =  `rgb( ${varR}, ${varG}, ${varB} )`
+```javascript
+    const generateColor =  `rgb( ${varR}, ${varG}, ${varB} )`
  
-       block.style.backgroundColor = generateColor
+    block.style.backgroundColor = generateColor
 ```
 
 ### Point 3 to Point 4
