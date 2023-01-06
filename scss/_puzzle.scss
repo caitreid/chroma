@@ -70,37 +70,29 @@ p.subtext {
     &:hover{
         cursor: grab;
     }
+    &:active {
+        cursor: grabbing;
+        cursor: -moz-grabbing;
+        cursor: -webkit-grabbing;
+    }
+    &.dragging {
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+        -webkit-transition: all 100ms;
+        -moz-transition: all 100ms;
+        transition: all 100ms;
+         transform: scale(1.1);
+        opacity: 0; // this hides the element that's still locked in the grid!
+    }
+    &.dragging:active, .dragging::selection{
+        transform: scale(1.1);
+    }
+    &:not(.dragging) {
+        transition-property:transform;
+        transition-duration: 1000ms;
+        transition-timing-function:ease-in-out;
+    }
 }
 
-.draggable:active {
-    cursor: grabbing;
-    cursor: -moz-grabbing;
-    cursor: -webkit-grabbing;
-
-}
-
-.dragging:active, .dragging::selection{
-   transform: scale(1.1);
-}
-
-.dropzone {
-    border: 1px black solid;
-}
-
-.dragging {
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  -webkit-transition: all 100ms;
-  -moz-transition: all 100ms;
-  transition: all 100ms;
-   transform: scale(1.1);
-  opacity: 0; // this hides the element that's still locked in the grid!
-}
-
-.draggable:not(.dragging) {
-    transition-property:transform;
-    transition-duration: 1000ms;
-    transition-timing-function:ease-in-out;
-}
 
 
 
