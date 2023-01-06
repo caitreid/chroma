@@ -1,9 +1,9 @@
 
 
-let pointOne = [143, 201, 200]
-let pointTwo = [243, 229, 118]
-let pointThree = [23, 54, 211]
-let pointFour = [230, 97, 125]
+let pointOne = [143, 201, 200] // Light Blue
+let pointTwo = [243, 229, 118] // Yellow
+let pointThree = [23, 54, 211] // Dark Blue
+let pointFour = [230, 97, 125] // Red-Orange
 
 let colorValues = {
     0: [pointOne, [], [], [], pointTwo],
@@ -35,9 +35,6 @@ blocks.forEach((block, index) => {
         colorValues[0][index][1] = varG
         colorValues[0][index][2] = varB
 
-        // console.log('index of ', index, colorValues[0][index])
-
-        //console.log(generateColor)
         block.style.backgroundColor = generateColor
     }
 
@@ -48,32 +45,25 @@ blocks.forEach((block, index) => {
 
         percent = index / 4
 
-
         let varR = colorValues[4][0][0] + percent * (colorValues[4][4][0] - colorValues[4][0][0]);
         let varG = colorValues[4][0][1] + percent * (colorValues[4][4][1] - colorValues[4][0][1]);
         let varB = colorValues[4][0][1] + percent * (colorValues[4][4][2] - colorValues[4][0][2]);
 
-        // if (index > 21) {
-
-            colorValues[4][index][0] = varR
-            colorValues[4][index][1] = varG
-            colorValues[4][index][2] = varB
-        // }
-
-
-        // console.log('index ', index, colorValues[4][1])
-        // console.log(varR, varG, varB)
+        colorValues[4][index][0] = varR
+        colorValues[4][index][1] = varG
+        colorValues[4][index][2] = varB
     
         const generateColor =  `rgb( ${varR}, ${varG}, ${varB})`
 
-        //console.log(generateColor)
         block.style.backgroundColor = generateColor
-
     }
+
+    
 
 })
 
-// const col1 = document.querySelectorAll('.puzzle--col-1')
+console.log('color values ', colorValues)
+
 const col1 = document.querySelectorAll('[data-column="1"]')
     
 // pointOne to pointThree
@@ -99,10 +89,10 @@ col1.forEach((block, index) => {
     block.style.backgroundColor = generateColor
 })
 
-// console.log(colorValues[2])
+
 
 // pointTwo to PointFour
-// const col5 = document.querySelectorAll('.puzzle--col-5')
+
 const col5 = document.querySelectorAll('[data-column="5"]')
 
 col5.forEach((block, index) => {
@@ -126,10 +116,9 @@ col5.forEach((block, index) => {
 
 })
 
-// const col2 = document.querySelectorAll('.puzzle--col-2')
+
+
 const col2 = document.querySelectorAll('[data-column="2"]')
-
-
 
 col2.forEach((block, index) => {
 
