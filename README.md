@@ -8,11 +8,11 @@ Table of Contents
 * <a href="#Technologies">Technologies</a>
 * <a href="#Approach">Approach</a>
 * <a href="#Commands">Commands</a>
-
+* <a href="#Roadmap">Roadmap</a>
 
 ## Goals
 
-The ambition of this game is to create a puzzle which dynamically generates a 4-pointed gradient each round. 
+Chroma is a pattern-based puzzle largely inspired by the iOS game, I Love Hue. My goal was to create an aesthetically pleasing app with a javascript-generated 4-pointed gradient, adding a meditative atmosphere to relax and entertain the user. In its current form, it is a web-based experience designed for desktop.
 
 ### User Stories
 
@@ -26,16 +26,13 @@ A User will be able to...
 
 ## Technologies
 
-This application was built with: 
+This web application was built with: 
+
 * HTML5
-* Drag and Drop API
+* [Drag and Drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API)
 * SCSS
 * Vanilla Javscript
 
-
-Approach taken
-Installation instructions
-Unsolved problems, etc.
 
 ## Approach
 
@@ -172,18 +169,27 @@ At this point I no longer need to add the generated color values to the colorVal
 
 
 
+## Roadmap
 
--
+After the successful launch of Version 1.0, there are still many features I look forward to developing. 
 
-## Notes
-- https://codepen.io/caitlinreid1/pen/ExpjeRY
+Chroma 2.0 will include:
+
+* Mobile styles so Chroma can be played on any device, not just desktop
+* Dedicated welcome screen with animated title
+* Allow user to continue playing additional rounds with different generated patterns and challenges
+* Improved Drag and Drop animations
+
 
 ## Commands
 
-Handy Commands
+Comands used for development of this application
+
+### Sass
 
 `sass --watch scss/style.scss:css/style.css`
 
+### ES Lint
 
 
 
