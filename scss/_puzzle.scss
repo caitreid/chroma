@@ -1,4 +1,5 @@
 .puzzle {
+
     &.puzzle__container {
         background-color: white;
         min-height: 800px;
@@ -80,13 +81,12 @@ p.subtext {
         -webkit-transition: all 100ms;
         -moz-transition: all 100ms;
         transition: all 100ms;
-         transform: scale(1.1);
+        transform: scale(1.1);
         opacity: 0; // this hides the element that's still locked in the grid!
     }
-    &.dragging:active, .dragging::selection{
-        transform: scale(1.1);
-    }
     &:not(.dragging) {
+        -webkit-transition: all 100ms;
+        -moz-transition: all 100ms;
         transition-property:transform;
         transition-duration: 1000ms;
         transition-timing-function:ease-in-out;
