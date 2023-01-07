@@ -1,22 +1,26 @@
+const col1 = document.querySelectorAll('[data-column="1"]')
+const col2 = document.querySelectorAll('[data-column="2"]')
+const col3 = document.querySelectorAll('[data-column="3"]')
+const col4 = document.querySelectorAll('[data-column="4"]')
+const col5 = document.querySelectorAll('[data-column="5"]')
 
 
 let pointOne = [143, 201, 200] // Light Blue
 let pointTwo = [243, 229, 118] // Yellow
 let pointThree = [23, 54, 211] // Dark Blue
-let pointFour = [230, 97, 125] // Red-Orange
+let pointFour = [230, 96, 0] // Red-Orange
+
 
 let colorValues = {
     0: [pointOne, [], [], [], pointTwo],
-    1: [[], [], [], [], []],
-    2: [[], [], [], [], []],
-    3: [[], [], [], [], []],
-    4: [pointThree, [], [], [], pointFour]
+    1: [pointThree, [], [], [], pointFour]
 }
 
+let varR;
+let varG;
+let varB;
 
-
-let pieces = document.querySelectorAll('.puzzle__piece');
-
+const colorVars = [varR, varG, varB]
 
 pieces.forEach((piece, index) => {
 
@@ -25,108 +29,65 @@ pieces.forEach((piece, index) => {
 
         percent = index / 4
     
-        let varR = colorValues[0][0][0] + percent * (colorValues[0][4][0] - colorValues[0][0][0]);
-        let varG = colorValues[0][0][1] + percent * (colorValues[0][4][1] - colorValues[0][0][1]);
-        let varB = colorValues[0][0][2] + percent * (colorValues[0][4][2] - colorValues[0][0][2]);
+        let varR = pointOne[0] + percent * (pointTwo[0] - pointOne[0]);
+        let varG = pointOne[1] + percent * (pointTwo[1] - pointOne[1]);
+        let varB = pointOne[2] + percent * (pointTwo[2] - pointOne[2]);
 
         const generateColor =  `rgb( ${varR}, ${varG}, ${varB} )`
+
+        piece.style.backgroundColor = generateColor
     
         colorValues[0][index][0] = varR
         colorValues[0][index][1] = varG
         colorValues[0][index][2] = varB
-
-        piece.style.backgroundColor = generateColor
     }
 
-    // // pointThree to pointFour
+    // pointThree to pointFour
     if (index > 20 && index < 25 ) {
 
-        index -= 20
+        index -= 20 
 
         percent = index / 4
 
-        let varR = colorValues[4][0][0] + percent * (colorValues[4][4][0] - colorValues[4][0][0]);
-        let varG = colorValues[4][0][1] + percent * (colorValues[4][4][1] - colorValues[4][0][1]);
-        let varB = colorValues[4][0][1] + percent * (colorValues[4][4][2] - colorValues[4][0][2]);
+        let varR = pointThree[0] + percent * (pointFour[0] - pointThree[0]);
+        let varG = pointThree[1] + percent * (pointFour[1] - pointThree[1]);
+        let varB = pointThree[2] + percent * (pointFour[2] - pointThree[2]);
 
-        colorValues[4][index][0] = varR
-        colorValues[4][index][1] = varG
-        colorValues[4][index][2] = varB
+        colorValues[1][index][0] = varR
+        colorValues[1][index][1] = varG
+        colorValues[1][index][2] = varB
     
         const generateColor =  `rgb( ${varR}, ${varG}, ${varB})`
 
         piece.style.backgroundColor = generateColor
     }
 
-    
-
 })
 
 console.log('color values ', colorValues)
 
-const col1 = document.querySelectorAll('[data-column="1"]')
-    
 // pointOne to pointThree
 col1.forEach((piece, index) => {
 
-    // console.log('piece: ', piece,  'index: ', index)
-
     percent = index / 4
 
-    let varR = colorValues[0][0][0] + percent * (colorValues[4][0][0] - colorValues[0][0][0]);
-    let varG = colorValues[0][0][1] + percent * (colorValues[4][0][1] - colorValues[0][0][1]);
-    let varB = colorValues[0][0][2] + percent * (colorValues[4][0][2] - colorValues[0][0][2]);
+    let varR = pointOne[0] + percent * (pointThree[0] - pointOne[0]);
+    let varG = pointOne[1] + percent * (pointThree[1] - pointOne[1]);
+    let varB = pointOne[2] + percent * (pointThree[2] - pointOne[2]);
 
     const generateColor =  `rgb( ${varR}, ${varG}, ${varB} )`
 
-    // colorValues[0][0][index] = varR
-    // colorValues[0][0][index] = varG
-    // colorValues[0][0][index] = varB
-
-    // console.log('index of ', index, colorValues[index][4])
-
-    //console.log(generateColor)
     piece.style.backgroundColor = generateColor
+    
 })
-
-
-
-// pointTwo to PointFour
-
-const col5 = document.querySelectorAll('[data-column="5"]')
-
-col5.forEach((piece, index) => {
-
-    percent = index / 4
-
-    let varR = colorValues[0][4][0] + percent * (colorValues[4][4][0] - colorValues[0][4][0]);
-    let varG = colorValues[0][4][1] + percent * (colorValues[4][4][1] - colorValues[0][4][1]);
-    let varB = colorValues[0][4][2] + percent * (colorValues[4][4][2] - colorValues[0][4][2]);
-
-    const generateColor =  `rgb( ${varR}, ${varG}, ${varB} )`
-
-    // colorValues[4][4][index] = varR
-    // colorValues[4][4][index] = varG
-    // colorValues[4][4][index] = varB
-
-    // console.log('index of ', index, colorValues[4][4][index])
-
-    //console.log(generateColor)
-    piece.style.backgroundColor = generateColor
-
-})
-
-
-
-const col2 = document.querySelectorAll('[data-column="2"]')
 
 col2.forEach((piece, index) => {
 
     percent = index / 4
 
-    let varR = colorValues[0][1][0] + percent * (colorValues[4][1][0] - colorValues[0][1][0]);
-    let varG = colorValues[0][1][1] + percent * (colorValues[4][1][1] - colorValues[0][1][1]);
-    let varB = colorValues[0][1][2] + percent * (colorValues[4][1][2] - colorValues[0][1][2]);
+    let varR = colorValues[0][1][0] + percent * (colorValues[1][1][0] - colorValues[0][1][0]);
+    let varG = colorValues[0][1][1] + percent * (colorValues[1][1][1] - colorValues[0][1][1]);
+    let varB = colorValues[0][1][2] + percent * (colorValues[1][1][2] - colorValues[0][1][2]);
 
 
     varB = (varB + colorValues[0][0][2]) / 2
@@ -134,95 +95,60 @@ col2.forEach((piece, index) => {
 
     const generateColor =  `rgb( ${varR}, ${varG}, ${varB} )`
 
-    // colorValues[index][4][0] = varR
-    // colorValues[index][4][1] = varG
-    // colorValues[index][4][2] = varB
-
-    // console.log(generateColor)
-
-    // console.log('index of ', index, colorValues[0][index])
-
-    //console.log(generateColor)
     piece.style.backgroundColor = generateColor
 
 })
-
-// console.log('colorValues: ', colorValues)
-
-// const col3 = document.querySelectorAll('.puzzle--col-3')
-const col3 = document.querySelectorAll('[data-column="3"]')
 
 col3.forEach((piece, index) => {
 
     percent = index / 4
 
-    let varR = colorValues[0][2][0] + percent * (colorValues[4][2][0] - colorValues[0][1][0]);
-    let varG = colorValues[0][2][1] + percent * (colorValues[4][2][1] - colorValues[0][1][1]);
-    let varB = colorValues[0][2][2] + percent * (colorValues[4][2][2] - colorValues[0][1][2]);
+    let varR = colorValues[0][2][0] + percent * (colorValues[1][2][0] - colorValues[0][1][0]);
+    let varG = colorValues[0][2][1] + percent * (colorValues[1][2][1] - colorValues[0][1][1]);
+    let varB = colorValues[0][2][2] + percent * (colorValues[1][2][2] - colorValues[0][1][2]);
 
 
     varR = (varR + colorValues[0][0][0]) / 2
     varB = (varB + colorValues[0][1][2]) / 2
-    
-    
 
     const generateColor =  `rgb( ${varR}, ${varG}, ${varB} )`
 
-    // colorValues[index][4][0] = varR
-    // colorValues[index][4][1] = varG
-    // colorValues[index][4][2] = varB
-
-    // console.log(generateColor)
-
-    // console.log('index of ', index, colorValues[0][index])
-
-    //console.log(generateColor)
     piece.style.backgroundColor = generateColor
 
 })
-
-// const col4 = document.querySelectorAll('.puzzle--col-4')
-const col4 = document.querySelectorAll('[data-column="4"]')
 
 col4.forEach((piece, index) => {
 
     percent = index / 4
 
-    let varR = colorValues[0][3][0] + percent * (colorValues[4][3][0] - colorValues[0][1][0]);
-    let varG = colorValues[0][3][1] + percent * (colorValues[4][3][1] - colorValues[0][1][1]);
-    let varB = colorValues[0][3][2] + percent * (colorValues[4][3][2] - colorValues[0][1][2]);
+    let varR = colorValues[0][3][0] + percent * (colorValues[1][3][0] - colorValues[0][1][0]);
+    let varG = colorValues[0][3][1] + percent * (colorValues[1][3][1] - colorValues[0][1][1]);
+    let varB = colorValues[0][3][2] + percent * (colorValues[1][3][2] - colorValues[0][1][2]);
 
     varR = (varR + colorValues[0][2][0]) / 2
     varB = (varB + colorValues[0][2][2]) / 2
  
 
-    
-    
-    
+    const generateColor =  `rgb( ${varR}, ${varG}, ${varB} )`
+
+    piece.style.backgroundColor = generateColor
+
+})
+
+// pointTwo to PointFour
+col5.forEach((piece, index) => {
+
+    percent = index / 4
+
+    let varR = pointTwo[0] + percent * (pointFour[0] - pointTwo[0]);
+    let varG = pointTwo[1] + percent * (pointFour[1] - pointTwo[1]);
+    let varB = pointTwo[2] + percent * (pointFour[2] - pointTwo[2]);
 
     const generateColor =  `rgb( ${varR}, ${varG}, ${varB} )`
 
-    // colorValues[index][4][0] = varR
-    // colorValues[index][4][1] = varG
-    // colorValues[index][4][2] = varB
-
-    // console.log(generateColor)
-
-    // console.log('index of ', index, colorValues[0][index])
-
-    //console.log(generateColor)
     piece.style.backgroundColor = generateColor
 
 })
 
 
-// make sure you're updating the object to hold all of the values
-// not sure when that will come in handy
-
-
-
-//------------------
-
-// write a function that tracks every initial position of each div
-// it then calculates the final position of that div based on the randomized array
-// then it dynamically creates key frames for each div to slowly change from its inital position to the final position
+console.log('color values ', colorValues)
