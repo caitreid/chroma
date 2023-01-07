@@ -15,10 +15,10 @@ let colorValues = {
 
 
 
-let blocks = document.querySelectorAll('.puzzle__piece');
+let pieces = document.querySelectorAll('.puzzle__piece');
 
 
-blocks.forEach((block, index) => {
+pieces.forEach((piece, index) => {
 
     // pointOne to pointTwo
     if (index < 5 ) {
@@ -35,7 +35,7 @@ blocks.forEach((block, index) => {
         colorValues[0][index][1] = varG
         colorValues[0][index][2] = varB
 
-        block.style.backgroundColor = generateColor
+        piece.style.backgroundColor = generateColor
     }
 
     // // pointThree to pointFour
@@ -55,7 +55,7 @@ blocks.forEach((block, index) => {
     
         const generateColor =  `rgb( ${varR}, ${varG}, ${varB})`
 
-        block.style.backgroundColor = generateColor
+        piece.style.backgroundColor = generateColor
     }
 
     
@@ -67,9 +67,9 @@ console.log('color values ', colorValues)
 const col1 = document.querySelectorAll('[data-column="1"]')
     
 // pointOne to pointThree
-col1.forEach((block, index) => {
+col1.forEach((piece, index) => {
 
-    // console.log('block: ', block,  'index: ', index)
+    // console.log('piece: ', piece,  'index: ', index)
 
     percent = index / 4
 
@@ -86,7 +86,7 @@ col1.forEach((block, index) => {
     // console.log('index of ', index, colorValues[index][4])
 
     //console.log(generateColor)
-    block.style.backgroundColor = generateColor
+    piece.style.backgroundColor = generateColor
 })
 
 
@@ -95,7 +95,7 @@ col1.forEach((block, index) => {
 
 const col5 = document.querySelectorAll('[data-column="5"]')
 
-col5.forEach((block, index) => {
+col5.forEach((piece, index) => {
 
     percent = index / 4
 
@@ -112,7 +112,7 @@ col5.forEach((block, index) => {
     // console.log('index of ', index, colorValues[4][4][index])
 
     //console.log(generateColor)
-    block.style.backgroundColor = generateColor
+    piece.style.backgroundColor = generateColor
 
 })
 
@@ -120,7 +120,7 @@ col5.forEach((block, index) => {
 
 const col2 = document.querySelectorAll('[data-column="2"]')
 
-col2.forEach((block, index) => {
+col2.forEach((piece, index) => {
 
     percent = index / 4
 
@@ -143,7 +143,7 @@ col2.forEach((block, index) => {
     // console.log('index of ', index, colorValues[0][index])
 
     //console.log(generateColor)
-    block.style.backgroundColor = generateColor
+    piece.style.backgroundColor = generateColor
 
 })
 
@@ -152,7 +152,7 @@ col2.forEach((block, index) => {
 // const col3 = document.querySelectorAll('.puzzle--col-3')
 const col3 = document.querySelectorAll('[data-column="3"]')
 
-col3.forEach((block, index) => {
+col3.forEach((piece, index) => {
 
     percent = index / 4
 
@@ -177,14 +177,14 @@ col3.forEach((block, index) => {
     // console.log('index of ', index, colorValues[0][index])
 
     //console.log(generateColor)
-    block.style.backgroundColor = generateColor
+    piece.style.backgroundColor = generateColor
 
 })
 
 // const col4 = document.querySelectorAll('.puzzle--col-4')
 const col4 = document.querySelectorAll('[data-column="4"]')
 
-col4.forEach((block, index) => {
+col4.forEach((piece, index) => {
 
     percent = index / 4
 
@@ -211,7 +211,7 @@ col4.forEach((block, index) => {
     // console.log('index of ', index, colorValues[0][index])
 
     //console.log(generateColor)
-    block.style.backgroundColor = generateColor
+    piece.style.backgroundColor = generateColor
 
 })
 

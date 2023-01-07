@@ -1,4 +1,4 @@
-/* events fired on the drop targets */
+
 const droptargets = document.querySelectorAll(".puzzle__target");
 
 const winner = document.querySelector('.intro-play__winner');
@@ -15,43 +15,33 @@ const setupBoard = () => {
   let dragged;
 
   /* events fired on the draggable target */
-  const elements = document.querySelectorAll(".draggable");
+  // const elements = document.querySelectorAll(".draggable");
 
   if (!attached) {
 
     attached = true;
 
-    elements.forEach(element => element.addEventListener("dragstart", (event)=> {
-      // store a ref. on the dragged elem
-  
+    const dragstart = (event) => {
+      // store a ref. on the dragged element  
       dragged = event.target;
   
-      // Add this element's id to the drag payload so the drop handler will
-      // know which element to add to its tree
+      // Add this element's id to the drag payload so the drop handler will know which element to add to its tree
       event.dataTransfer.setData("text", event.target.id);
       event.dataTransfer.effectAllowed = "move";
   
-      // make it half transparent
+      // shadow on puzzle piece
       event.target.classList.add("dragging");
+    }
+
+    pieces.forEach((piece) => {
+
+      piece.addEventListener("dragstart", dragstart);
+      piece.addEventListener("dragend", (event) => { event.target.classList.remove("dragging") })
+    
+    })
   
-    }))
-  
-  
-    elements.forEach(element => element.addEventListener("dragend", (event)=> {
-        // reset the transparency
-      event.target.classList.remove("dragging");
-    }))
-  
-  
-    droptargets.forEach(droptarget => droptarget.addEventListener("dragover", (event)=> {
-  
-      event.preventDefault();
-  
-    }, false))
-  
-  
-    droptargets.forEach(droptarget => droptarget.addEventListener("drop", (event) => {
-  
+    const dropEvent = (event) => {
+
       // prevent default action (open as link for some elements)
       event.preventDefault();
   
@@ -59,8 +49,6 @@ const setupBoard = () => {
   
       // move dragged element to the selected drop target
       if (newPlace.classList.contains("puzzle__target")) {
-
-        // setTimeout(() => { event.target.classList.add('color-transition') },0);
         
         // find the dragged element's parent and append the square it's hover above
         dragged.parentElement.appendChild(event.target)
@@ -71,8 +59,15 @@ const setupBoard = () => {
       }
       
       checkGame()
+
+    }
   
-    }))
+    droptargets.forEach((droptarget) =>{
+
+      droptarget.addEventListener("dragover", (event)=> { event.preventDefault() }, false);
+      droptarget.addEventListener("drop", dropEvent)
+      
+    })
 
   }
 
@@ -110,12 +105,12 @@ const startGame = () => {
   let newArr = [];
 
   // set up the edges of the game
-  blocks.forEach((block, index) => {
+  pieces.forEach((piece, index) => {
 
     // Add Black dots to all outside points
-    if (index < 5 || index > 19 && index < 25 || block.dataset.column == 1 || block.dataset.column == 5 ) {
+    if (index < 5 || index > 19 && index < 25 || piece.dataset.column == 1 || piece.dataset.column == 5 ) {
 
-      block.innerHTML = 
+      piece.innerHTML = 
       `<svg class="black-dot" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
           <circle cx="50" cy="50" r="5" />
       </svg>`
@@ -123,11 +118,11 @@ const startGame = () => {
     }
     else {
 
-      block.draggable = true
+      piece.draggable = true
 
-      block.classList.add('draggable')
+      piece.classList.add('draggable')
 
-      newArr.push(block.dataset.id)
+      newArr.push(piece.dataset.id)
       
     }
 
@@ -184,12 +179,12 @@ const checkGame = () => {
   let count = 0;
 
   // let droptargets = document.querySelectorAll('.droptarget')
-  let blocks = document.querySelectorAll('.puzzle__piece')
+  let pieces = document.querySelectorAll('.puzzle__piece')
 
-  blocks.forEach((block) => {
+  pieces.forEach((piece) => {
 
-    // if block's id matches its parent's id
-    if (block.dataset.id === block.parentElement.dataset.id) {
+    // if piece's id matches its parent's id
+    if (piece.dataset.id === piece.parentElement.dataset.id) {
       
       count++
 
@@ -214,17 +209,17 @@ const checkGame = () => {
 
 const resetGame = (event) => {
 
-  blocks.forEach((block, index) => {
+  pieces.forEach((piece, index) => {
   
     // remove all black dots from outside pieces
-    if (index < 5 || index > 19 && index < 25 || block.dataset.column == 1 || block.dataset.column == 5 ) {
+    if (index < 5 || index > 19 && index < 25 || piece.dataset.column == 1 || piece.dataset.column == 5 ) {
     
-      block.innerHTML = "" 
+      piece.innerHTML = "" 
     
     }
 
-    block.classList.remove('draggable') 
-    block.draggable = false
+    piece.classList.remove('draggable') 
+    piece.draggable = false
 
     reset.classList.add('button--hide')
     play.classList.remove('button--hide')
