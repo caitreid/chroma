@@ -1,28 +1,30 @@
+// puzzle + board elements
+const targets = document.querySelectorAll(".puzzle__target");
+const pieces = document.querySelectorAll('.puzzle__piece');
+const winner = document.querySelector('.announcement');
+const star = document.querySelector('.star__image')
 
-const droptargets = document.querySelectorAll(".puzzle__target");
+// buttons 
+const play = document.querySelector('.button--play')
+const reset = document.querySelector('.button--reset')
 
-const winner = document.querySelector('.intro-play__winner');
+let attached = false; 
 
-let star = document.querySelector('.star__image')
 
-let attached = false;
-
-// Add Event Listeners to make sure the board is draggable 
+// Make puzzle draggable 
 const setupBoard = () => {
 
   winner.innerHTML = "" // remove any old winner announcements
 
   let dragged;
 
-  /* events fired on the draggable target */
-  // const elements = document.querySelectorAll(".draggable");
-
   if (!attached) {
 
-    attached = true;
+    attached = true; // only attached eventListeners once
 
     const dragstart = (event) => {
-      // store a ref. on the dragged element  
+      
+      // set dragged element to a variable
       dragged = event.target;
   
       // Add this element's id to the drag payload so the drop handler will know which element to add to its tree
@@ -62,7 +64,7 @@ const setupBoard = () => {
 
     }
   
-    droptargets.forEach((droptarget) =>{
+    targets.forEach((droptarget) =>{
 
       droptarget.addEventListener("dragover", (event)=> { event.preventDefault() }, false);
       droptarget.addEventListener("drop", dropEvent)
@@ -73,8 +75,9 @@ const setupBoard = () => {
 
 }
 
-// // Fisher–Yates shuffle
+// Fisher–Yates shuffle
 function shuffle(array) {
+
   let currentIndex = array.length,  randomIndex;
 
   // While there remain elements to shuffle.
@@ -116,6 +119,7 @@ const startGame = () => {
       </svg>`
 
     }
+
     else {
 
       piece.draggable = true
@@ -139,16 +143,16 @@ const startGame = () => {
   // inner game
   shuffle(newArr)
  
-  const innerSquares = document.querySelectorAll('.draggable')
+  const innerPieces = document.querySelectorAll('.draggable')
 
-  innerSquares.forEach(square => { square.remove() } ) // takes them off the board
+  innerPieces.forEach(square => { square.remove() } ) // takes them off the board
 
   let shuffleList = []
 
   // create a list of dropzones that match the shuffled order of the new Array
   for (i = 0; i < newArr.length; i++ ){
 
-    droptargets.forEach(target => {
+    targets.forEach(target => {
 
       if (target.dataset.id === newArr[i]) {
 
@@ -162,14 +166,14 @@ const startGame = () => {
 
   for (let i = 0; i < shuffleList.length; i ++) {
 
-    for (let i = 0; i < innerSquares.length; i++) {
+    for (let i = 0; i < innerPieces.length; i++) {
 
-      shuffleList[i].appendChild(innerSquares[i])
+      shuffleList[i].appendChild(innerPieces[i])
 
     }
   }
 
-  // needs to come at the end, it seems
+  // needs to come at the end
   setupBoard()
 }
 
@@ -178,7 +182,6 @@ const checkGame = () => {
 
   let count = 0;
 
-  // let droptargets = document.querySelectorAll('.droptarget')
   let pieces = document.querySelectorAll('.puzzle__piece')
 
   pieces.forEach((piece) => {
@@ -207,7 +210,7 @@ const checkGame = () => {
 }
 
 
-const resetGame = (event) => {
+const resetGame = () => {
 
   pieces.forEach((piece, index) => {
   
@@ -220,23 +223,22 @@ const resetGame = (event) => {
 
     piece.classList.remove('draggable') 
     piece.draggable = false
-
     reset.classList.add('button--hide')
     play.classList.remove('button--hide')
     
 
-    // put elements back in proper order if stopping mid-game
+    // put elements back in proper order if stopping mid-game to reset
 
-    const innerSquares = document.querySelectorAll('.draggable');
+    const innerPieces = document.querySelectorAll('.draggable');
 
-    for (let i = 0; i < innerSquares.length; i++) {
+    for (let i = 0; i < innerPieces.length; i++) {
   
-      for (let j = 0; j < droptargets.length; j++) {
+      for (let j = 0; j < targets.length; j++) {
   
       
-        if (innerSquares[i].dataset.id === droptargets[j].dataset.id ) {
+        if (innerPieces[i].dataset.id === targets[j].dataset.id ) {
     
-          droptargets[j].appendChild(innerSquares[i])
+          targets[j].appendChild(innerPieces[i])
     
         }
 
@@ -248,13 +250,7 @@ const resetGame = (event) => {
 
 }
 
-let play = document.querySelector('.button--play')
-
-// play.addEventListener("click", startGame);
-
 play.addEventListener("click", () => { setTimeout(startGame, 0) })
-
-let reset = document.querySelector('.button--reset')
 
 reset.addEventListener("click", resetGame)
 
