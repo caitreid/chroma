@@ -64,7 +64,7 @@ pieces.forEach((piece, index) => {
 
 })
 
-console.log('color values ', colorValues)
+//console.log('color values ', colorValues)
 
 // pointOne to pointThree
 col1.forEach((piece, index) => {
@@ -151,4 +151,4 @@ col5.forEach((piece, index) => {
 })
 
 
-console.log('color values ', colorValues)
+////console.log('color values ', colorValues)

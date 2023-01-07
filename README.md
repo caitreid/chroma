@@ -48,7 +48,9 @@ To begin, I used CSS Grid to arrange 25 divs inside a single container. The Drag
 
 <img src="./images/diagram_1.png" /><br><br>
 
-Translated to code:
+**Diagram 1** This illustrates the basic structure of my HTML. Any yellow `.puzzle__piece` can be dragged and dropped into any blue `puzzle__target` containing div.
+
+Here's the diagram translated to a bit of sample code:
 
 ```html
 <div class="puzzle puzzle__container">
@@ -62,9 +64,11 @@ Translated to code:
 
  
 
-After creating all of the necessary elements, I gave each `puzzle__piece` a `data-id`, starting with 1 and incrementing upwards. This is important because when we check for the accuracy of the game, we look to see if the interior puzzle piece's ID matches the target. I also gave each piece a `data-column` to easily target the element of a certain column in `color.js` where I dynamically add color to each piece on the board.
+After creating all of the necessary elements, I gave each `puzzle__piece` a `data-id`, starting with 1 and incrementing upwards. 
+Giving each piece and target a unique ID is important to distinguish between them.  When we check for the accuracy of the game, we look to see if the interior puzzle piece's ID matches the target after being moved around by the user. 
+To make targeting elements easier in `color.js`, I also gave each piece a `data-column`. This will be discussed further in the section on Color.
 
-A final note on the HTML: I began this project with hardcoded HTML elements, but if I were to refactor this project, I would consider dynamically generating each element in javascript to easily update the number of pieces and orientation as needed, rather than updating the DOM with what already exists. However this is certainly a good starting point before developing something more dynamic.
+A final note on the HTML: I began this project with hardcoded HTML elements, but if I were to refactor this project, I would consider dynamically generating each element with javascript's `createElement` method to easily update the number of pieces and orientation as needed, rather than updating the DOM with what already exists. However this is certainly a good starting point before developing something more dynamic in future versions.
 
 
 
@@ -72,7 +76,7 @@ A final note on the HTML: I began this project with hardcoded HTML elements, but
 
 ### Board.js | setupBoard()
 
-After laying out all of the 25 `puzzle__pieces` and their surrounding `puzzle__target`, the next step I took was to create the most important functionality of the game, drag and drop. Leveraging HTML's drag and drop capability, I targeted blocks on the board and configured event listeners to update the DOM accordingly when pieces were moved.
+After laying out all of the 25 `puzzle__pieces` and their surrounding `puzzle__target`, the next step I took was to create the most important functionality of the game, drag and drop. Leveraging HTML's drag and drop capability, I targeted pieces on the board and configured event listeners to update the DOM accordingly when pieces were moved.
 
 
 
@@ -119,10 +123,10 @@ However I created this data structure to keep track of the values that were gene
 ### Point One to Point Two 
 
 ```javascript
-let blocks = document.querySelectorAll('.puzzle__piece');
+let pieces = document.querySelectorAll('.puzzle__piece');
 
 
-blocks.forEach((block, index) => {
+pieces.forEach((piece, index) => {
 
    // pointOne to pointTwo
    if (index < 5 ) {
@@ -139,7 +143,7 @@ blocks.forEach((block, index) => {
        colorValues[0][index][1] = varG
        colorValues[0][index][2] = varB
 
-       block.style.backgroundColor = generateColor
+       piece.style.backgroundColor = generateColor
    }
 
 ...
@@ -149,7 +153,7 @@ blocks.forEach((block, index) => {
 
 
 
-Looping over all of the blocks, I used the index to determine the position of the first, top row of the puzzle. 
+Looping over all of the pieces, I used the index to determine the position of the first, top row of the puzzle. 
 
 I created four values `varR`, `varG` and varB` -- and then I set up my calculations to get the new value of the point based on its index position.
 
@@ -163,12 +167,12 @@ Then I made sure to add the calculated values into my `colorValues object`
     colorValues[0][index][2] = varB
 ```
 
-then I took the generated value and added it to the block at the particular index of my row.
+then I took the generated value and added it to the piece at the particular index of my row.
 
 ```javascript
     const generateColor =  `rgb( ${varR}, ${varG}, ${varB} )`
  
-    block.style.backgroundColor = generateColor
+    piece.style.backgroundColor = generateColor
 ```
 
 ### Point 3 to Point 4
@@ -178,11 +182,11 @@ then I took the generated value and added it to the block at the particular inde
 
 ### Point 1 to Point 3 (column 1)
 
-To target each column, I made use of a data value I set on the blocks in the HTML. So to get the blocks from Point 1 to Point 3, I targeted everything designated as column 1.
+To target each column, I made use of a data value I set on the pieces in the HTML. So to get the pieces from Point 1 to Point 3, I targeted everything designated as column 1.
 
 `const col1 = document.querySelectorAll('[data-column="1"]')`
 
-Then I looped over every block, calculated every new color based on the values in my colorValues object, and assigned it to the blocks
+Then I looped over every piece, calculated every new color based on the values in my colorValues object, and assigned it to the pieces
 
 As you can see, the puzzle is starting to take shape.
 

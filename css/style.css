@@ -326,6 +326,23 @@ body a {
   text-underline-offset: 5px;
 }
 
+.buttons__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+p.subtext {
+  font-size: 1rem;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 700px;
+  width: 100%;
+  margin-bottom: 5rem;
+}
+
 .button {
   color: white;
   background-color: black;
@@ -440,23 +457,6 @@ body.start div h1 {
 .puzzle .puzzle__piece.color-transition {
   transition-property: all, sliding;
   transition-duration: 2s;
-}
-
-.intro-play {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-p.subtext {
-  font-size: 1rem;
-}
-
-.container {
-  margin: 0 auto;
-  max-width: 700px;
-  width: 100%;
-  margin-bottom: 5rem;
 }
 
 .black-dot {
