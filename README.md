@@ -121,7 +121,7 @@ const dropEvent = (event) => {
     if (newPlace.classList.contains("puzzle__target")) {
     
     // find the dragged element's parent 
-    // and append the square it's hover above
+    // and append the square it's hovering above
     dragged.parentElement.appendChild(event.target)
 
     // append dragged element to the new drop target
@@ -378,20 +378,20 @@ pieces.forEach((piece, index) => {
    // pointOne to pointTwo
    if (index < 5 ) {
 
-       percent = index / 4
-  
-       let varR = colorValues[0][0][0] + percent * (colorValues[0][4][0] - colorValues[0][0][0]);
-       let varG = colorValues[0][0][1] + percent * (colorValues[0][4][1] - colorValues[0][0][1]);
-       let varB = colorValues[0][0][2] + percent * (colorValues[0][4][2] - colorValues[0][0][2]);
+        percent = index / 4
+    
+        let varR = pointOne[0] + percent * (pointTwo[0] - pointOne[0]);
+        let varG = pointOne[1] + percent * (pointTwo[1] - pointOne[1]);
+        let varB = pointOne[2] + percent * (pointTwo[2] - pointOne[2]);
 
-       const generateColor =  `rgb( ${varR}, ${varG}, ${varB} )`
-  
-       colorValues[0][index][0] = varR
-       colorValues[0][index][1] = varG
-       colorValues[0][index][2] = varB
+        const generateColor =  `rgb( ${varR}, ${varG}, ${varB} )`
 
-       piece.style.backgroundColor = generateColor
-   }
+        piece.style.backgroundColor = generateColor
+    
+        colorValues[0][index][0] = varR
+        colorValues[0][index][1] = varG
+        colorValues[0][index][2] = varB
+    }
 
 ...
 
