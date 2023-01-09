@@ -88,7 +88,8 @@ const dragstart = (event) => {
       // set dragged element to a variable
       dragged = event.target;
   
-      // Add this element's id to the drag payload so the drop handler will know which element to add to its tree
+      // Add this element's id to the drag payload 
+      // so the drop handler will know which element to add to its tree
       event.dataTransfer.setData("text", event.target.id);
       event.dataTransfer.effectAllowed = "move";
   
@@ -119,7 +120,8 @@ const dropEvent = (event) => {
     // move dragged element to the selected drop target
     if (newPlace.classList.contains("puzzle__target")) {
     
-    // find the dragged element's parent and append the square it's hover above
+    // find the dragged element's parent 
+    // and append the square it's hover above
     dragged.parentElement.appendChild(event.target)
 
     // append dragged element to the new drop target
