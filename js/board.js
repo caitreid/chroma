@@ -23,7 +23,7 @@ const setupBoard = () => {
     attached = true; // only attached eventListeners once
 
     const dragstart = (event) => {
-      
+
       // set dragged element to a variable
       dragged = event.target;
   
@@ -182,7 +182,7 @@ const checkGame = () => {
 
   let count = 0;
 
-  let pieces = document.querySelectorAll('.puzzle__piece')
+  // let pieces = document.querySelectorAll('.puzzle__piece')
 
   pieces.forEach((piece) => {
 
