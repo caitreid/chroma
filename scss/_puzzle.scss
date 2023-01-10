@@ -1,6 +1,8 @@
 .puzzle {
     min-height: 600px;
     height:100%;
+    max-width: 900px;
+    padding: 2rem;
 
     &.puzzle__container {
         display:grid;
@@ -99,10 +101,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        min-height: 700px;
+        min-height: calc(100% - 4rem);
         width: calc(66% - 4rem);
-        padding: 4rem 0 0;
         right: 0;
+        z-index: -1;
+        display:none;
+        padding:6rem;
     }
 
     &__image {
@@ -111,8 +115,9 @@
         z-index: 100;       
     }
 
-    &--hide {
-        display:none;
+    &.star--show {
+        display:block;
+        z-index: 1;
     }
 }
 

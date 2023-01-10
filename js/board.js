@@ -2,7 +2,7 @@
 const targets = document.querySelectorAll(".puzzle__target");
 const pieces = document.querySelectorAll('.puzzle__piece');
 const winner = document.querySelector('.text__announcement');
-const star = document.querySelector('.star__image')
+const star = document.querySelector('.star')
 
 // buttons 
 const play = document.querySelector('.button--play')
@@ -14,7 +14,6 @@ let attached = false;
 
 // Make puzzle draggable 
 const setupBoard = () => {
-
 
   console.log('test')
   winner.innerHTML = "" // remove any old winner announcements
@@ -105,7 +104,7 @@ const startGame = () => {
 
   reset.classList.remove('button--hide')
   play.classList.add('button--hide')
-  star.classList.add('star--hide')
+  // star.classList.add('star--show')
   
   let newArr = [];
 
@@ -200,6 +199,8 @@ const checkGame = () => {
         winner.innerHTML = "YOU WON! CONGRATS."
 
         play.innerHTML = "BEGIN AGAIN"
+
+        star.classList.add('star--show')
         
         resetGame()
 

@@ -335,20 +335,26 @@ body a {
   gap: 6rem;
 }
 
+.text {
+  padding: 0 1rem;
+}
 .text__instructions {
   padding-top: 3rem;
 }
 .text__subtext {
   font-size: 1.75rem;
 }
-.text .text__footer {
+.text__announcement {
+  padding-top: 2rem;
+}
+.text__footer {
   display: block;
   padding: 4rem 0;
   padding: 4rem 0;
   position: absolute;
   bottom: 0;
 }
-.text .text__footer p {
+.text__footer p {
   font-size: 1rem;
 }
 
@@ -448,6 +454,8 @@ body.start div h1 {
 .puzzle {
   min-height: 600px;
   height: 100%;
+  max-width: 900px;
+  padding: 2rem;
 }
 .puzzle.puzzle__container {
   display: grid;
@@ -530,18 +538,21 @@ body.start div h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 700px;
+  min-height: calc(100% - 4rem);
   width: calc(66% - 4rem);
-  padding: 4rem 0 0;
   right: 0;
+  z-index: -1;
+  display: none;
+  padding: 6rem;
 }
 .star__image {
   max-width: 90%;
   animation: winnerAnimation 2s;
   z-index: 100;
 }
-.star--hide {
-  display: none;
+.star.star--show {
+  display: block;
+  z-index: 1;
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -32,7 +32,8 @@ body {
 }
 
 .text { 
-    
+    padding: 0 1rem;
+
     &__instructions {
         padding-top: 3rem;
     }
@@ -41,7 +42,11 @@ body {
         font-size: 1.75rem;
     }
 
-    .text__footer {
+    &__announcement {
+        padding-top: 2rem;
+    }
+
+    &__footer {
         display: block;
         padding: 4rem 0;
         padding: 4rem 0;
