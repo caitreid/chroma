@@ -15,6 +15,8 @@ let attached = false;
 // Make puzzle draggable 
 const setupBoard = () => {
 
+
+  console.log('test')
   winner.innerHTML = "" // remove any old winner announcements
 
   let dragged;

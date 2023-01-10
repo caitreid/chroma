@@ -28,10 +28,10 @@ body {
     grid-template-columns: 1fr 2fr;
     margin-bottom: 5rem;
     height: 100%;
+    gap: 6rem;
 }
 
 .text { 
-    padding: 0 4rem 0 0;
     
     &__instructions {
         padding-top: 3rem;

@@ -332,11 +332,9 @@ body a {
   grid-template-columns: 1fr 2fr;
   margin-bottom: 5rem;
   height: 100%;
+  gap: 6rem;
 }
 
-.text {
-  padding: 0 4rem 0 0;
-}
 .text__instructions {
   padding-top: 3rem;
 }
@@ -533,7 +531,7 @@ body.start div h1 {
   align-items: center;
   justify-content: center;
   min-height: 700px;
-  width: 66%;
+  width: calc(66% - 4rem);
   padding: 4rem 0 0;
   right: 0;
 }
