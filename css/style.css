@@ -314,6 +314,7 @@ body {
   color: white;
   font-family: "Unbounded", Arial;
   padding: 1rem;
+  overflow: hidden;
 }
 body h1 {
   font-size: 3rem;
