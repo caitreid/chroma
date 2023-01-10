@@ -332,7 +332,7 @@ body a {
   grid-template-columns: 1fr 2fr;
   margin-bottom: 5rem;
   height: 100%;
-  gap: 6rem;
+  gap: 10rem;
 }
 
 .text {
@@ -384,6 +384,7 @@ body a {
 }
 .button__wrapper .button--audio img {
   max-width: 1rem;
+  max-height: 0.9rem;
 }
 .button__wrapper .button--hide {
   display: none;
@@ -539,7 +540,7 @@ body.start div h1 {
   align-items: center;
   justify-content: center;
   min-height: calc(100% - 4rem);
-  width: calc(66% - 4rem);
+  width: calc(66% - 7rem);
   right: 0;
   z-index: -1;
   display: none;

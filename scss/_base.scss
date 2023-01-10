@@ -28,7 +28,7 @@ body {
     grid-template-columns: 1fr 2fr;
     margin-bottom: 5rem;
     height: 100%;
-    gap: 6rem;
+    gap: 10rem;
 }
 
 .text { 
@@ -89,6 +89,7 @@ body {
         
         &--audio img {
             max-width: 1rem;
+            max-height: .9rem;
         }
     
         &--hide {

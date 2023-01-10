@@ -7,10 +7,12 @@ const star = document.querySelector('.star')
 // buttons 
 const play = document.querySelector('.button--play')
 const reset = document.querySelector('.button--reset')
-const audio = document.querySelector('.button--audio')
+const audioButton = document.querySelector('.button--audio')
+const audioButtonPlay = document.querySelector('.button--audio__play')
+const audio = document.getElementById('audio')
 
 let attached = false; 
-
+let audioPlaying = false;
 
 // Make puzzle draggable 
 const setupBoard = () => {
@@ -104,7 +106,6 @@ const startGame = () => {
 
   reset.classList.remove('button--hide')
   play.classList.add('button--hide')
-  // star.classList.add('star--show')
   
   let newArr = [];
 
@@ -253,14 +254,26 @@ const resetGame = () => {
 
 }
 
-// const initAudio = () => {
+const initAudio = () => {
 
-//   audio.play()
+  if (audioPlaying === false ) {
 
+    audio.play()
+    audioButtonPlay.src = './images/pause.png'
+    audioPlaying = true
 
-// }
+  }
+  else {
 
-// audio.addEventListener("click", initAudio)
+    audio.pause()
+    audioButtonPlay.src = './images/play.png'
+    audioPlaying = false 
+
+  }
+  
+}
+
+audioButton.addEventListener("click", initAudio)
 
 play.addEventListener("click", () => { setTimeout(startGame, 0) })
 
