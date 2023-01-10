@@ -1,6 +1,3 @@
-<img src="./images/opening.png" style="max-width:500px" /><br><br><br>
-
-
 # CHROMA 
 
 Table of Contents
