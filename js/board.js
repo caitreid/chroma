@@ -103,7 +103,9 @@ const startGame = () => {
   reset.classList.remove('button--hide')
   play.classList.add('button--hide')
   star.classList.add('star--hide')
+  audio.volume = 0.1
   audio.play()
+  
 
   let newArr = [];
 

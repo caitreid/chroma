@@ -1,9 +1,8 @@
 .puzzle {
+    min-height: 600px;
+    height:100%;
 
     &.puzzle__container {
-        background-color: white;
-        min-height: 800px;
-        height:100%;
         display:grid;
         grid-template-columns: repeat(5, 1fr);
         grid-template-rows: repeat(5, 1fr);
@@ -29,11 +28,6 @@
         
     }
 }
-
-
-
-
-
 
 .black-dot {
     opacity: 0;
