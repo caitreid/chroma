@@ -105,6 +105,8 @@ const startGame = () => {
 
   reset.classList.remove('button--hide')
   play.classList.add('button--hide')
+
+  initAudio()
   
   let newArr = [];
 
