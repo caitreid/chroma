@@ -105,8 +105,13 @@ const startGame = () => {
 
   reset.classList.remove('button--hide')
   play.classList.add('button--hide')
+  star.classList.remove('star--show')
 
-  initAudio()
+  if (audioPlaying === false ){
+
+    initAudio()
+  }
+  
   
   let newArr = [];
 
@@ -195,8 +200,6 @@ const checkGame = () => {
       count++
 
       if (count === 25) {
-
-        star.classList.remove('star--hide')
         
         winner.innerHTML = "YOU WON! CONGRATS."
 
@@ -230,7 +233,6 @@ const resetGame = () => {
     piece.draggable = false
     reset.classList.add('button--hide')
     play.classList.remove('button--hide')
-    
 
     // put elements back in proper order if stopping mid-game to reset
 
