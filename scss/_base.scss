@@ -6,11 +6,11 @@ body {
     padding: 1rem;
 
     h1 {
-        font-size: 4rem;
+        font-size: 3rem;
     }
     
     p {
-        font-size: 2rem;
+        font-size: 1.25rem;   
     }
     
     a {
@@ -20,16 +20,7 @@ body {
     }
 }
 
-.buttons__wrapper {
 
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-}
-
-p.subtext {
-    font-size: 1rem;
-}
 
 .container {
     display:grid;
@@ -39,37 +30,70 @@ p.subtext {
     height: 100%;
 }
 
-
-.button {
-    color:white;
-    background-color: black;
-    font-family: 'Unbounded', Arial;
-    padding:1rem;
-    margin: 2rem 0;
-    border: 1px solid white;
-    display: block;
-    opacity:1;
-    transition: all .5s;
-
-    &:hover {
-        cursor: pointer;
-        background-color: rgb(255, 23, 170);
-    }
-
-    &--reset:hover {
-        background-color: white;
-        color:black;
-    }
+.text { 
+    padding: 0 4rem 0 0;
     
-    &--hide {
-        display:none;
-        opacity:0
+    &__instructions {
+        padding-top: 3rem;
+    }
+
+    &__subtext {
+        font-size: 1.75rem;
+    }
+
+    .text__footer {
+        display: block;
+        padding: 4rem 0;
+        padding: 4rem 0;
+        position: absolute;
+        bottom: 0;
+
+        p {
+            font-size: 1rem;
+        }
+    }
+
+}
+
+.button__wrapper {
+
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    
+    .button {
+        color:white;
+        background-color: black;
+        font-family: 'Unbounded', Arial;
+        padding:1rem;
+        margin: 2rem 1rem 0 0;
+        border: 1px solid white;
+        display: block;
+        opacity:1;
+        transition: all .5s;
+    
+        &:hover {
+            cursor: pointer;
+            background-color: rgb(255, 23, 170);
+        }
+    
+        &--reset:hover {
+            background-color: white;
+            color:black;
+        }
+        
+        &--audio img {
+            max-width: 1rem;
+        }
+    
+        &--hide {
+            display:none;
+            opacity:0
+        }
     }
 }
 
-.footer {
-    display: block;
-    padding: 4rem 0;
-}
+
+
 
 

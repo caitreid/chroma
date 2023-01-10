@@ -1,12 +1,13 @@
 // puzzle + board elements
 const targets = document.querySelectorAll(".puzzle__target");
 const pieces = document.querySelectorAll('.puzzle__piece');
-const winner = document.querySelector('.announcement');
+const winner = document.querySelector('.text__announcement');
 const star = document.querySelector('.star__image')
 
 // buttons 
 const play = document.querySelector('.button--play')
 const reset = document.querySelector('.button--reset')
+const audio = document.querySelector('.button--audio')
 
 let attached = false; 
 
@@ -103,10 +104,7 @@ const startGame = () => {
   reset.classList.remove('button--hide')
   play.classList.add('button--hide')
   star.classList.add('star--hide')
-  audio.volume = 0.1
-  audio.play()
   
-
   let newArr = [];
 
   // set up the edges of the game
@@ -251,6 +249,15 @@ const resetGame = () => {
   })
 
 }
+
+// const initAudio = () => {
+
+//   audio.play()
+
+
+// }
+
+// audio.addEventListener("click", initAudio)
 
 play.addEventListener("click", () => { setTimeout(startGame, 0) })
 
