@@ -366,6 +366,8 @@ body a {
 }
 .text__footer p {
   font-size: 1rem;
+  line-height: 1rem;
+  font-weight: 300;
 }
 
 .button__wrapper {
