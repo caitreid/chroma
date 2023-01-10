@@ -1,15 +1,18 @@
 // puzzle + board elements
 const targets = document.querySelectorAll(".puzzle__target");
 const pieces = document.querySelectorAll('.puzzle__piece');
-const winner = document.querySelector('.announcement');
-const star = document.querySelector('.star__image')
+const winner = document.querySelector('.text__announcement');
+const star = document.querySelector('.star')
 
 // buttons 
 const play = document.querySelector('.button--play')
 const reset = document.querySelector('.button--reset')
+const audioButton = document.querySelector('.button--audio')
+const audioButtonPlay = document.querySelector('.button--audio__play')
+const audio = document.getElementById('audio')
 
 let attached = false; 
-
+let audioPlaying = false;
 
 // Make puzzle draggable 
 const setupBoard = () => {
@@ -102,9 +105,7 @@ const startGame = () => {
 
   reset.classList.remove('button--hide')
   play.classList.add('button--hide')
-  star.classList.add('star--hide')
-  audio.play()
-
+  
   let newArr = [];
 
   // set up the edges of the game
@@ -198,6 +199,8 @@ const checkGame = () => {
         winner.innerHTML = "YOU WON! CONGRATS."
 
         play.innerHTML = "BEGIN AGAIN"
+
+        star.classList.add('star--show')
         
         resetGame()
 
@@ -249,6 +252,27 @@ const resetGame = () => {
   })
 
 }
+
+const initAudio = () => {
+
+  if (audioPlaying === false ) {
+
+    audio.play()
+    audioButtonPlay.src = './images/pause.png'
+    audioPlaying = true
+
+  }
+  else {
+
+    audio.pause()
+    audioButtonPlay.src = './images/play.png'
+    audioPlaying = false 
+
+  }
+  
+}
+
+audioButton.addEventListener("click", initAudio)
 
 play.addEventListener("click", () => { setTimeout(startGame, 0) })
 

@@ -1,9 +1,10 @@
 .puzzle {
+    min-height: 600px;
+    height:100%;
+    max-width: 900px;
+    padding: 2rem;
 
     &.puzzle__container {
-        background-color: white;
-        min-height: 800px;
-        height:100%;
         display:grid;
         grid-template-columns: repeat(5, 1fr);
         grid-template-rows: repeat(5, 1fr);
@@ -26,18 +27,21 @@
             transition-property: all, sliding;
             transition-duration: 2s;   
         }
+
+        .black-dot {
+            opacity: 0;
+            width: 150px;
         
+            &.visible {
+                opacity: 1;
+                transition-property: opacity;
+                transition-duration: 1s;
+            }
+        }
     }
 }
 
 
-
-
-
-
-.black-dot {
-    opacity: 0;
-}
   
 .draggable {
     text-align: center;
@@ -50,14 +54,17 @@
     -webkit-transition: all 250ms;
     -moz-transition: all 250ms;
     transition: all 250ms;
+
     &:hover{
         cursor: grab;
     }
+
     &:active {
         cursor: grabbing;
         cursor: -moz-grabbing;
         cursor: -webkit-grabbing;
     }
+
     &.dragging {
         box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
         -webkit-transition: all 100ms;
@@ -66,6 +73,7 @@
         transform: scale(1.1);
         opacity: 0; // this hides the element that's still locked in the grid!
     }
+
     &:not(.dragging) {
         -webkit-transition: all 100ms;
         -moz-transition: all 100ms;
@@ -73,16 +81,6 @@
         transition-duration: 1000ms;
         transition-timing-function:ease-in-out;
     }
-}
-
-
-
-
-// this is for the black dots specifically
-.visible {
-    opacity: 1;
-    transition-property: opacity;
-    transition-duration: 1s;
 }
 
 @keyframes winnerAnimation {
@@ -103,8 +101,12 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        min-height: 700px;
-        padding: 5rem 0;
+        min-height: calc(100% - 4rem);
+        width: calc(66% - 7rem);
+        right: 0;
+        z-index: -1;
+        display:none;
+        padding:6rem;
     }
 
     &__image {
@@ -113,8 +115,9 @@
         z-index: 100;       
     }
 
-    &--hide {
-        display:none;
+    &.star--show {
+        display:block;
+        z-index: 1;
     }
 }
 
