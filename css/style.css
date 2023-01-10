@@ -308,6 +308,7 @@ template {
 }
 
 body {
+  animation: fadeInAnimation ease 3s;
   background-color: black;
   height: 100%;
   color: white;
@@ -326,6 +327,14 @@ body a {
   text-underline-offset: 5px;
 }
 
+@keyframes fadeInAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .container {
   display: grid;
   margin: 0 auto;
