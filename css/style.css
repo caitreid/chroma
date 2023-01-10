@@ -493,6 +493,7 @@ body.start div h1 {
 .puzzle .puzzle__piece .black-dot {
   opacity: 0;
   width: 150px;
+  position: absolute;
 }
 .puzzle .puzzle__piece .black-dot.visible {
   opacity: 1;
