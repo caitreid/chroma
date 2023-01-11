@@ -1,3 +1,10 @@
+@import 'variables';
+
+html {
+	scroll-behavior: smooth;
+}
+
+
 body {
     animation: fadeInAnimation ease 3s;
     background-color: black;
@@ -5,7 +12,10 @@ body {
     color:white;
     font-family: 'Unbounded', Arial;
     padding: 1rem;
-    overflow: hidden;
+
+    @media (min-width: $desktop-breakpoint) {
+        overflow: hidden;
+    }
 
     h1 {
         font-size: 3rem;
@@ -30,18 +40,31 @@ body {
       opacity: 1;
     }
 }
+
 .container {
     display:grid;
     margin: 0 auto;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr;
     margin-bottom: 5rem;
     height: 100%;
-    gap: 10rem;
+    gap: 1rem;
+
+    @media (min-width: $tablet-breakpoint) {
+        
+        grid-template-columns: 1fr;
+        gap: 2rem;
+
+    }
+    @media (min-width: $desktop-breakpoint) {
+        grid-template-columns: 1fr 2fr;
+        gap: 10rem;
+    }
 }
 
 .text { 
-    padding: 0 1rem;
-
+    @media (min-width: $desktop-breakpoint) {
+        padding: 0 1rem;
+    }
     &__instructions {
         padding-top: 3rem;
     }
@@ -58,8 +81,13 @@ body {
         display: block;
         padding: 4rem 0;
         padding: 4rem 0;
-        position: absolute;
+        position: relative;
         bottom: 0;
+
+        @media (min-width: $desktop-breakpoint) {
+            position: absolute;
+        }
+
         
         p {
             font-size: 1rem;
@@ -86,6 +114,10 @@ body {
         display: block;
         opacity:1;
         transition: all .5s;
+
+        a {
+            text-decoration: none;
+        }
     
         &:hover {
             cursor: pointer;
