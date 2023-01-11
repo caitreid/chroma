@@ -23,7 +23,7 @@ const setupBoard = () => {
 
   if (!attached) {
 
-    attached = true; // only attached eventListeners once
+    attached = true; // only attach eventListeners once
 
     const dragstart = (event) => {
 
@@ -47,7 +47,7 @@ const setupBoard = () => {
   
     const dropEvent = (event) => {
 
-      // prevent default action (open as link for some elements)
+      // prevent default action (e.g. open as link for some elements)
       event.preventDefault();
   
       let newPlace = event.target.parentElement
@@ -66,7 +66,8 @@ const setupBoard = () => {
       checkGame()
 
     }
-  
+    
+    // drop eventlisteners
     targets.forEach((droptarget) =>{
 
       droptarget.addEventListener("dragover", (event)=> { event.preventDefault() }, false);
@@ -131,9 +132,7 @@ const startGame = () => {
     else {
 
       piece.draggable = true
-
       piece.classList.add('draggable')
-
       newArr.push(piece.dataset.id)
       
     }
@@ -190,11 +189,9 @@ const checkGame = () => {
 
   let count = 0;
 
-  // let pieces = document.querySelectorAll('.puzzle__piece')
-
   pieces.forEach((piece) => {
 
-    // if piece's id matches its parent's id
+    // if piece's id matches its parent's id (puzzle__target)
     if (piece.dataset.id === piece.parentElement.dataset.id) {
       
       count++
@@ -222,11 +219,11 @@ const resetGame = () => {
 
   pieces.forEach((piece, index) => {
   
-    // remove all black dots from outside pieces
-    if (index < 5 || index > 19 && index < 25 || piece.dataset.column == 1 || piece.dataset.column == 5 ) {
-    
-      piece.innerHTML = "" 
-    
+    // remove all pieces with svg black-dot appended, reset innerHTML
+    if (piece.firstChild) {
+
+      piece.innerHTML = ""
+
     }
 
     piece.classList.remove('draggable') 
